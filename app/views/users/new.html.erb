@@ -1,0 +1,13 @@
+<h1>Sign Up!</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username, :placeholder => "Type a username" %>
+  <%= f.label :email %>
+  <%= f.text_field :email, :placeholder => "Type your email address" %>
+  <%= f.label :password %>
+  <%= f.text_field :password, :placeholder => "Type a password" %>
+  <%= f.label :password_confirmation %>
+  <%= f.text_field :password_confirmation, :placeholder => "Confirm your password" %>
+  <%= f.submit "Create User!", class: "btn btn-primary btn-sm" %>
+  <% end %>
