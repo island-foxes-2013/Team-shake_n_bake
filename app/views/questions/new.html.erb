@@ -1,0 +1,9 @@
+<h1>Create a Question</h1>
+
+<%= form_for @question do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :username, placeholder: "Title" %>
+	<%= f.label :body %>
+	<%= f.text_field :body, placeholder: "Body" %>
+	<%= f.submit "Create Question!", class: "btn btn-primary btn-sm" %>
+<% end %>
