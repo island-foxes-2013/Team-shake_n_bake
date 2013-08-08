@@ -1,10 +1,13 @@
 <h1><%= @question.title %></h1> 
 <h3><%= @question.body %></h3>
 <br />
+<h4>Answers to this question:</h4>
 	<ul>
 	<% @question.answers.all.each do |answer| %>
 		<li><%= answer.body %></li>
 		<% end %>
 	</ul>
 
-<%= link_to "Answer This Question!", new_answer_path %>
+<% if logged_in? %>
+<%= link_to "Answer This Question!", new_question_answer_path(@question) %>
+<% end %>
