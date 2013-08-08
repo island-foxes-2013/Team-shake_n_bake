@@ -12,7 +12,7 @@
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
 		<ul class="nav navbar-nav">
-			<li><%= link_to 'Our Site Name', questions_path, class: 'brand' %></li>
+			<li><%= link_to 'Shake \'n\' Bake', questions_path, class: 'brand' %></li>
 	    <% if session[:id] %>
 	      <li><%= link_to 'Logout', session_path(session[:id]), method: :delete %></li>
 	      <li><%= link_to 'Ask a Question', new_question_path %></li>
