@@ -15,7 +15,5 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    p "$" * 100
-    p session[:id]
   end
 end
