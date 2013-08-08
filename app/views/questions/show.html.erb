@@ -1,0 +1,10 @@
+<h1><%= @question.title %> -</h1> 
+<h3><%= @question.body %></h3>
+<br />
+	<ul>
+	<% @question.answers.all.each do |answer| %>
+		<li><%= answer.body %></li>
+		<% end %>
+	</ul>
+
+<%= link_to "Answer This Question!", new_answer_path %>
