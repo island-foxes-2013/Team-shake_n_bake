@@ -3,8 +3,15 @@
 <br />
 <h4>Answers to this question:</h4>
 	<ul>
-	<% @question.answers.all.each do |answer| %>
-		<li><%= answer.body %></li>
+	<% @question.answers.each do |answer| %>
+		<li>
+      <%= answer.body %>
+      <%= form_for answer.votes.last, remote: true do |f| %>
+        <%= f.hidden_field :answer_id, value: answer.votes.last.answer_id %>
+        <%= f.submit "Vote" %>
+      <% end %>
+    </li>
+
 		<% end %>
 	</ul>
 
