@@ -31,6 +31,8 @@ group :test, :development do
 
   gem 'capybara'
   gem 'launchy'
+
+  gem 'shoulda-matchers'
 end
 
 gem 'jquery-rails'
