@@ -3,7 +3,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    if logged_in?
+      @user = User.new
+    else
+      redirect_to sessions_path
+    end
   end
 
   def create
@@ -15,7 +19,5 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    p "$" * 100
-    p session[:id]
   end
 end
