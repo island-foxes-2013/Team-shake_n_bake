@@ -1,0 +1,10 @@
+<h1>Answer this question: <%= @question.title %> -</h1> 
+<h3><%= @question.body %></h3>
+<br />
+<%= form_for @answer do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body, :placeholder => "Type your answer here" %>
+  <%= f.hidden_field :user_id, "#{User.find(session[:id])}" %>
+  <%= f.hidden_field :question_id, "#{@question.id}" %>
+  <%= f.submit "Submit Answer!", class: "btn btn-primary btn-sm" %>
+  <% end %>
