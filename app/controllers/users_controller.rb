@@ -3,11 +3,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    if logged_in?
-      @user = User.new
-    else
-      redirect_to sessions_path
-    end
+    @user = User.new
   end
 
   def create

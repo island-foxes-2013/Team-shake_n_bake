@@ -15,7 +15,7 @@
 			<li><%= link_to 'Our Site Name', questions_path, class: 'brand' %></li>
 	    <% if session[:id] %>
 	      <li><%= link_to 'Logout', session_path(session[:id]), method: :delete %></li>
-	      <li><%= link_to 'Ask a Question', '/questions/new' %></li>
+	      <li><%= link_to 'Ask a Question', new_question_path %></li>
 	    <% else %> 
 	 	    <li><%= link_to 'Sign up', new_user_path %></li>
 	 	    <li><%= link_to 'Sign in', '/sessions' %></li>

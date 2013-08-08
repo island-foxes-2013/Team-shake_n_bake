@@ -4,7 +4,11 @@ class QuestionsController < ApplicationController
   end
 
   def new
-  	@question = Question.new
+ 		if logged_in?
+  		@question = Question.new
+  	else
+  		redirect_to sessions_path
+  	end
   end
 
   def create
