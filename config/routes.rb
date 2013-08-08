@@ -1,5 +1,6 @@
 ShakeNBake::Application.routes.draw do
-  resources :users, :questions, :answers, :sessions
+  resources :users, :questions, :answers
+  resources :sessions, only: [:index, :create, :destroy]
   root :to => "questions#index"
 
 

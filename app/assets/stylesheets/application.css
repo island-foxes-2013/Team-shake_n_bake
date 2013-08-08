@@ -11,3 +11,29 @@
  *= require_self
  *= require_tree .
  */
+
+html {
+  width: 90%;
+  position: relative;
+  left: 2%;
+  min-width: 900px;
+}
+
+#user {
+  color: white;
+  text-align: center;
+  margin-top: 11px;
+  margin-left: 33px;
+}
+
+#user_ul {
+  float: right;
+}
+
+#user span {
+  color: #CC66CC;
+}
+
+.brand {
+	color: #FFCC66 !important;
+}
