@@ -18,4 +18,10 @@ class AnswersController < ApplicationController
   def destroy
   end
 
+  def show
+    @answer = Answer.find_by_id(params[:id])
+    @comments = @answer.comments
+    @comment = Comment.new
+  end
+
 end
