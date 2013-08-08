@@ -14,7 +14,7 @@
 		<ul class="nav navbar-nav">
 			<li><%= link_to 'Our Site Name', questions_path, class: 'brand' %></li>
 	    <% if logged_in? %>
-	      <li><%= link_to 'Logout', '/sessions/' + "#{current_user.id}" %></li>
+	      <li><%= link_to 'Logout', session_path(current_user.id), method: :delete %></li>
 	      <li><%= link_to 'Ask a Question', '/questions/new' %></li>
 	    <% else %> 
 	 	    <li><%= link_to 'Sign up', new_user_path %></li>
@@ -23,7 +23,7 @@
 	 	</ul>
 	  <% if logged_in? %>
 	    <ul id='user_ul'>
-	    	<li id='user'>Logged in as: <span><% current_user.username %></span></li>
+	    	<li id='user'>Logged in as: <span><%= current_user.username %></span></li>
 	    </ul>
 	  <% end %>
 	</div>
