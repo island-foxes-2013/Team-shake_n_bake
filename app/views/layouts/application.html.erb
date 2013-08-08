@@ -14,7 +14,7 @@
 		<ul class="nav navbar-nav">
 			<li><%= link_to 'Our Site Name', questions_path, class: 'brand' %></li>
 	    <% if logged_in? %>
-	      <li><%= link_to 'Logout', '/sessions/' + "#{current_user.id}" %></li>
+	      <li><%= link_to 'Logout', '/sessions/', :method => :delete %></li>
 	      <li><%= link_to 'Ask a Question', '/questions/new' %></li>
 	    <% else %> 
 	 	    <li><%= link_to 'Sign up', new_user_path %></li>
