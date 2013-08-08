@@ -28,6 +28,10 @@ html {
 
 #user_ul {
   float: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 18px;
+
 }
 
 #user span {

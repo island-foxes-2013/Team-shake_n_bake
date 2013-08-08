@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user, aliases: [:to, :from] do |f|
+  factory :user do |f|
     f.sequence(:username) { |n| "Bananas#{n}" }
     f.sequence(:email) { |n| "Ipee#{n}@yellowsnow.com" }
     f.password "robot"
@@ -7,6 +7,7 @@ FactoryGirl.define do
   end
 
   factory :question do |f|
+  	user
   	f.title "a question title here"
   	f.body "lot's of stuff goes here"
   end
