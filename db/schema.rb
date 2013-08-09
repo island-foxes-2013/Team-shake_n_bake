@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130808182017) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
+    t.integer  "user_id"
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.datetime "created_at",       :null => false
@@ -41,9 +42,8 @@ ActiveRecord::Schema.define(:version => 20130808182017) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.string   "password_confirmation"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "votes", :force => true do |t|

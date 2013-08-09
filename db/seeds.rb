@@ -6,15 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-@user_ids = []
-User.all.each do |user|
-	@user_ids << user.id 
-end
-
 def populate_users_table
 	100.times do |user|
 		User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: '1234', password_confirmation: '1234' )
 	end
+	@user_ids = []
+	User.all.each do |user|
+		@user_ids << user.id 
+	end	
 end
 populate_users_table
 
@@ -42,17 +41,20 @@ populate_answers
 def populate_votes
 	questions = Question.all
 	answers = Answer.all
-	questions.each do |quest|
+	questions.each do |question|
     n = rand(0..100)
 	  n.times do |vote|
-		question.votes.create(user_id: @user_ids.pop)
+			question.votes.create(user_id: @user_ids.pop)
+		end
 	end
-	answers.each do |answ|
+	answers.each do |answer|
     n = rand(0..100)
 	  n.times do |vote|
-		answer.votes.create(user_id: @user_ids.pop)
+			answer.votes.create(user_id: @user_ids.pop)
+		end
 	end
 end
+populate_votes
 
 def populate_comments
 	questions = Question.all
