@@ -31,6 +31,13 @@ group :test, :development do
 
   gem 'capybara'
   gem 'launchy'
+
+  gem 'shoulda-matchers'
+
+  gem 'database_cleaner'
+
+  gem 'simplecov'
+
 end
 
 gem 'jquery-rails'
@@ -42,6 +49,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Fake it up! Whoop! Whoop!
 gem 'faker'
 
+gem 'factory_girl'
 gem 'factory_girl_rails'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
