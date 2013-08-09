@@ -9,5 +9,20 @@
 #question_box {
 	width: 600px;
 	border-radius: 10px;
-	border: thin black;
+	border: solid thin;
+	background-color: rgba(248,248,248, 1);
+	margin-left: 5%;
+	padding: 10px 20px 10px 30px;
+}
+
+#question_box h1 {
+	font-size: 30px;
+	margin: 0px;
+}
+
+#question_box hr {
+	color: rgb(38,38,38);
+	background-color: rgba(38,38,38,0.4);
+	height: 1px;
+	margin-top: 5px;
 }

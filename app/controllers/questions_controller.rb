@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
     @question.answers.each do |answer|
       answer.votes.build
     end
-    @user = User.find(session[:id])
-    @user
+    # @user = User.find(session[:id])
+    # @user
   end
 end
