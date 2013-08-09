@@ -1,13 +1,15 @@
 
 <h1><%= @question.title %></h1> 
 <h3><%= @question.body %></h3>
-<p>-<%= @question.user.username %></p>
+<p>-<%= @question.user.username %> <%= image_tag(@question.user.gravatar_url, width: "50", height: "50") %></p>
+
 <br />
 <h4>Answers to this question:</h4>
 	<ul>
 	<% @question.answers.each do |answer| %>
 		<li>
-      <p><%= answer.body %>, by: <%= answer.user.username %></p>
+      <p><%= answer.body %>, by: <%= answer.user.username %> <%= image_tag(answer.user.gravatar_url, width: "50", height: "50") %></p>
+      
       Votes: <span class='vote_count'><%= answer.votes.count %></span>
       <%= form_for answer.votes.last, remote: true do |f| %>
         <%= f.hidden_field :answer_id, value: answer.votes.last.answer_id %>
@@ -15,7 +17,7 @@
         <h5>Comments: </h5>
         <ul>
           <% answer.comments.each do |comment| %>
-            <li><%= comment.content %> (<span class='comment-user'><%= comment.user.username %></span>)</li>
+            <li><%= comment.content %> (<span class='comment-user'><%= comment.user.username %></span>) <%= image_tag(comment.user.gravatar_url, width: "50", height: "50") %></li>
           <% end %>
         </ul>
         <%= link_to "Comment", answer_path(answer) %>

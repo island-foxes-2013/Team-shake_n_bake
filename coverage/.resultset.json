@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/controllers/answers_controller.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/controllers/answers_controller.rb": [
         1,
         1,
         null,
@@ -30,7 +30,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/controllers/application_controller.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -43,63 +43,44 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/helpers/application_helper.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/helpers/answers_helper.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/helpers/answers_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/helpers/comments_helper.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/helpers/comments_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/helpers/questions_helper.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/helpers/questions_helper.rb": [
         1,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/helpers/sessions_helper.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/helpers/sessions_helper.rb": [
         1,
         null,
         1,
-        0,
-        0,
+        6,
+        6,
         null,
         null,
         null,
         1,
-        7,
+        13,
         null,
-        null,
-        null
-      ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/helpers/users_helper.rb": [
-        1,
         null,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/models/answer.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null
-      ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/controllers/comments_controller.rb": [
-        1,
-        1,
-        1,
-        1,
+      "/Users/Christine/workspace/shake_n_bake/app/helpers/users_helper.rb": [
         1,
         null,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/models/comment.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/models/answer.rb": [
+        1,
         1,
         1,
         1,
@@ -109,7 +90,26 @@
         1,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/controllers/questions_controller.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/controllers/comments_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Christine/workspace/shake_n_bake/app/models/comment.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/Christine/workspace/shake_n_bake/app/controllers/questions_controller.rb": [
         1,
         1,
         12,
@@ -143,7 +143,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/models/question.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/models/question.rb": [
         1,
         1,
         1,
@@ -152,7 +152,7 @@
         1,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/controllers/sessions_controller.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -171,7 +171,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/controllers/users_controller.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -185,6 +185,9 @@
         0,
         0,
         0,
+        null,
+        0,
+        null,
         null,
         null,
         1,
@@ -192,7 +195,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/models/user.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/models/user.rb": [
         1,
         1,
         1,
@@ -209,9 +212,11 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/controllers/votes_controller.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/controllers/votes_controller.rb": [
         1,
         null,
+        1,
+        1,
         1,
         1,
         1,
@@ -239,7 +244,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/Team-shake_n_bake/app/models/vote.rb": [
+      "/Users/Christine/workspace/shake_n_bake/app/models/vote.rb": [
         1,
         null,
         1,
@@ -253,6 +258,6 @@
         null
       ]
     },
-    "timestamp": 1376010346
+    "timestamp": 1376075374
   }
 }

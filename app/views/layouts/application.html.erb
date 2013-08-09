@@ -14,6 +14,7 @@
 		<ul class="nav navbar-nav">
 			<li><%= link_to 'Shake \'n\' Bake', questions_path, class: 'brand' %></li>
 	    <% if session[:id] %>
+      <li><%= link_to 'My Profile', user_path(current_user) %></li>
 	      <li><%= link_to 'Logout', session_path(session[:id]), method: :delete %></li>
 	      <li><%= link_to 'Ask a Question', new_question_path %></li>
 	    <% else %> 
