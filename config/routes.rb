@@ -11,6 +11,8 @@ ShakeNBake::Application.routes.draw do
   resources :comments, except: [:new, :create]
 
   resources :sessions, only: [:index, :create, :destroy]
+  resources :votes, only: [:create]
+
   root :to => "questions#index"
 
 

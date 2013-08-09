@@ -25,5 +25,8 @@ class QuestionsController < ApplicationController
 
   def show
   	@question = Question.find(params[:id])
+    @question.answers.each do |answer|
+      answer.votes.build
+    end
   end
 end

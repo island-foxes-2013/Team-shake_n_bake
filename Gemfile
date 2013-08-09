@@ -33,6 +33,11 @@ group :test, :development do
   gem 'launchy'
 
   gem 'shoulda-matchers'
+
+  gem 'database_cleaner'
+
+  gem 'simplecov'
+
 end
 
 gem 'jquery-rails'
