@@ -18,3 +18,5 @@ FactoryGirl.define do
     f.question
   end
 end
+
+# dont need f. before these

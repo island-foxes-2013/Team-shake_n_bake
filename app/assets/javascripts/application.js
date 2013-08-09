@@ -15,9 +15,14 @@
 //= require_tree .
 
 $(document).ready(function() {
+
+  if ($('[name="commit"]')
+
   $('form#new_vote').on('ajax:success', function(event, response, status, xhr) {
     console.log($(event.target[0]));
     $(event.target).parent('li').find('.vote_count').html(xhr.responseJSON.num_votes);
   });
 });
 
+
+// $("#new_vote").find('[name="commit"]')
