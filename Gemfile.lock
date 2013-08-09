@@ -168,6 +168,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 3.2.1)
   debugger
+  factory_girl
   factory_girl_rails
   faker
   jquery-rails

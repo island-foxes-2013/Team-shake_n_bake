@@ -1,3 +1,4 @@
+
 <h1><%= @question.title %></h1> 
 <h3><%= @question.body %></h3>
 <p>-<%= @question.user.username %></p>
@@ -6,10 +7,13 @@
 	<ul>
 	<% @question.answers.all.each do |answer| %>
 		<li><%= answer.body %>-<%= answer.user.username %></li>
+
       <ul>
         <h5>Comments: </h5>
-        <% answer.comments.each do |comment| %>
-          <li><%= comment.content %> -<%= comment.user.username %></li>
+        <% if answer.comments %>
+          <% answer.comments.each do |comment| %>
+            <li><%= comment.content %> -<%= comment.user.username %></li>
+          <% end %>
         <% end %>
         <%= link_to "Comment", answer_path(answer) %>
     </ul>
