@@ -22,7 +22,7 @@ def populate_questions
 	user = User.all
 	user.each do |user|
 		10.times do |question|
-			user.questions.create(title: Faker::Lorem.sentence(word_count = 4), body: Faker::Lorem.paragraphs(paragraph_count = 1))
+			user.questions.create(title: Faker::Lorem.sentence(word_count = 4), body: Faker::Lorem.paragraphs(paragraph_count = 1).first)
 		end
 	end
 end
@@ -33,7 +33,7 @@ def populate_answers
 	questions = Question.all
 	questions.each do |question|
 		3.times do |answer|
-			question.answers.create(body: Faker::Lorem.sentences(sentence_count = 3), user_id: @user_ids.sample)
+			question.answers.create(body: Faker::Lorem.sentences(sentence_count = 3).first, user_id: @user_ids.sample)
 		end
 	end
 end
@@ -59,14 +59,14 @@ def populate_comments
 	questions.each do |question|
 		n = rand(0..7)
 		n.times do |comment|
-			question.comments.create(content: Faker::Lorem.sentences(sentence_count = 1), user_id: @user_ids.sample)
+			question.comments.create(content: Faker::Lorem.sentences(sentence_count = 1).first, user_id: @user_ids.sample)
 		end
 	end
 	answers = Answer.all
 	answers.each do |answer|
 		n = rand(0..4)
 		n.times do |comment|
-			answer.comments.create(content: Faker::Lorem.sentences(sentence_count = 1), user_id: @user_ids.sample)
+			answer.comments.create(content: Faker::Lorem.sentences(sentence_count = 1).first, user_id: @user_ids.sample)
 		end
 	end
 end
