@@ -7,13 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 def populate_users_table
-	100.times do |user|
+	20.times do |user|
 		User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: '1234', password_confirmation: '1234' )
-	end
+	end	
 	@user_ids = []
 	User.all.each do |user|
 		@user_ids << user.id 
-	end	
+	end
 end
 populate_users_table
 
@@ -42,15 +42,17 @@ def populate_votes
 	questions = Question.all
 	answers = Answer.all
 	questions.each do |question|
-    n = rand(0..100)
+		user_id = @user_ids.clone
+    n = rand(0..20)
 	  n.times do |vote|
-			question.votes.create(user_id: @user_ids.pop)
+			question.votes.create(user_id: user_id.pop)
 		end
 	end
 	answers.each do |answer|
-    n = rand(0..100)
+		user_id = @user_ids.clone
+    n = rand(0..20)
 	  n.times do |vote|
-			answer.votes.create(user_id: @user_ids.pop)
+			answer.votes.create(user_id: user_id.pop)
 		end
 	end
 end
