@@ -53,9 +53,10 @@ ActiveRecord::Schema.define(:version => 20130808182017) do
 
   create_table "votes", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "answer_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "votetable_id"
+    t.string   "votetable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "votes", ["user_id"], :name => "index_votes_on_user_id"

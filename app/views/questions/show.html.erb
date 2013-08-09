@@ -5,13 +5,21 @@
 <br />
 <h4>Answers to this question:</h4>
 	<ul>
+
+
 	<% @question.answers.each do |answer| %>
-		<li>
-      <p><%= answer.body %>, by: <%= answer.user.username %></p>
+		<li><p><%= answer.body %>, by: <%= answer.user.username %></p></li>
+
       Votes: <span class='vote_count'><%= answer.votes.count %></span>
+
+      <%= answer.votes.find
       <%= form_for answer.votes.last, remote: true do |f| %>
+
         <%= f.hidden_field :answer_id, value: answer.votes.last.answer_id %>
+
         <%= f.submit "Vote", :'data-answer' => answer.votes.last.answer_id, :'data-user' => current_user.id, class: "btn btn-success btn-sm" %>
+        
+
         <h5>Comments: </h5>
         <ul>
           <% answer.comments.each do |comment| %>
