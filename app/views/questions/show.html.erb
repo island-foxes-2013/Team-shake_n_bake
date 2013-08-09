@@ -14,7 +14,7 @@
         <h5>Comments: </h5>
         <ul>
           <% answer.comments.each do |comment| %>
-            <li><%= comment.content %> -<%= comment.user.username %></li>
+            <li><%= comment.content %> (<span class='comment-user'><%= comment.user.username %></span>)</li>
           <% end %>
         </ul>
         <%= link_to "Comment", answer_path(answer) %>
