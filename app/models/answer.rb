@@ -1,9 +1,10 @@
 class Answer < ActiveRecord::Base
   belongs_to :question
   belongs_to :user
-  has_many :comments
-  attr_accessible :body, :user_id, :question_id
   has_many :votes
+  has_many :comments, as: :commentable
+
+  attr_accessible :body, :user_id, :question_id
 
   validates :body, presence: true
 end

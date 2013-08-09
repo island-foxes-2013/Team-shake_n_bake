@@ -22,17 +22,12 @@ ActiveRecord::Schema.define(:version => 20130808182017) do
   end
 
   create_table "comments", :force => true do |t|
-    t.integer  "question_id"
-    t.integer  "user_id"
-    t.integer  "answer_id"
     t.string   "content"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
-
-  add_index "comments", ["answer_id"], :name => "index_comments_on_answer_id"
-  add_index "comments", ["question_id"], :name => "index_comments_on_question_id"
-  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "questions", :force => true do |t|
     t.string   "title"
