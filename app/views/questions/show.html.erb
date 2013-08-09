@@ -5,7 +5,8 @@
 	<ul>
 	<% @question.answers.each do |answer| %>
 		<li>
-      <%= answer.body %>
+      <p><%= answer.body %></p>
+      Votes: <span class='vote_count'><%= answer.votes.count %></span>
       <%= form_for answer.votes.last, remote: true do |f| %>
         <%= f.hidden_field :answer_id, value: answer.votes.last.answer_id %>
         <%= f.submit "Vote" %>
