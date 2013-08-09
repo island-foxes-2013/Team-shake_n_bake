@@ -7,6 +7,11 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
+gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'gravtastic'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,7 +41,7 @@ group :test, :development do
 
   gem 'database_cleaner'
 
-  gem 'simplecov'
+  gem 'simplecov', :require => false, :group => :test
 
 end
 
