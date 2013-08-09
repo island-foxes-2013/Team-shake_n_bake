@@ -1,6 +1,8 @@
 class VotesController < ApplicationController
 
   def create
+     p "&" * 80
+     p
     p "*" * 50
     p "ABOUT TO VOTE!"
     p Vote.count

@@ -11,7 +11,7 @@
       Votes: <span class='vote_count'><%= answer.votes.count %></span>
       <%= form_for answer.votes.last, remote: true do |f| %>
         <%= f.hidden_field :answer_id, value: answer.votes.last.answer_id %>
-        <%= f.submit "Vote" %>
+        <%= f.submit "Vote", :'data-answer' => answer.votes.last.answer_id, :'data-user' => current_user.id, class: "btn btn-success btn-sm" %>
         <h5>Comments: </h5>
         <ul>
           <% answer.comments.each do |comment| %>
