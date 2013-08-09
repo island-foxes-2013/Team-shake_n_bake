@@ -16,7 +16,7 @@ populate_users_table
 def populate_questions
   user = User.all
   user.each do |user|
-  	3.times do |question|
+  	10.times do |question|
   		user.questions.create(title: Faker::Lorem.sentence(word_count = 4), body: Faker::Lorem.paragraphs(paragraph_count = 1))
   	end
   end

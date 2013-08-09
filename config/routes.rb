@@ -4,6 +4,12 @@ ShakeNBake::Application.routes.draw do
     resources :answers, only: [:new, :create]
   end
   resources :answers, except: [:new, :create]
+
+  resources :answers do
+    resources :comments, only: [:new, :create]
+  end
+  resources :comments, except: [:new, :create]
+
   resources :sessions, only: [:index, :create, :destroy]
   resources :votes, only: [:create]
 
