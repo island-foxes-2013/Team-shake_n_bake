@@ -1,6 +1,6 @@
 
 <div id='question_box'>
-<h1><%= @question.title %></h1> 
+<h1><%= @question.title %><hr /></h1> 
 <p>-<%= @question.user.username %></p>
 <h3><%= @question.body %></h3>
 </div>
@@ -15,7 +15,7 @@
 
       Votes: <span class='vote_count'><%= answer.votes.count %></span>
 
-      <%= answer.votes.find
+
       <%= form_for answer.votes.last, remote: true do |f| %>
 
         <%= f.hidden_field :answer_id, value: answer.votes.last.answer_id %>
