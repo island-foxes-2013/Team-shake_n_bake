@@ -12,6 +12,7 @@ MVP
 -[X] Few model and integration tests
 
 STRETCH
+-[ ] User can vote on an answer
 -[ ] Search for topics
 -[ ] View comments in order of most votes
 -[ ] Vote on comments

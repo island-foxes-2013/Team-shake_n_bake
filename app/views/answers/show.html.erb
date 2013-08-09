@@ -1,0 +1,12 @@
+<h1>Answer: </h1>
+
+<%= @answer.body %>
+<h4>Comments: </h4>
+<% @comments.each do |comment| %>
+  <li><%= comment.content %></li>
+<% end %>
+
+<%= form_for [@answer, @comment] do |f| %>
+  <%= f.text_area :content %><br>
+  <%= submit_tag("Create Comment", class: "btn btn-primary btn-sm") %>
+<% end %>
