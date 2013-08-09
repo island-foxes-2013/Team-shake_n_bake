@@ -1,6 +1,8 @@
 <h1>Shake 'n' Bake</h1>
-<h4>The Good Eats Overload</h4>
-
+<%= image_tag('http://4.bp.blogspot.com/-V3PVpQNEsBE/ThaCJ1TfJ2I/AAAAAAAACK8/ZyxW8HOVE7U/s200/shake.jpg') %>
+<h4>The Hungies Overload</h4>
+<ul id='list'>
 <% @questions.each do |question| %>
-	<li><%= link_to question.title, question_path(question) %></li>
+	<li><%= link_to question.title, question_path(question), :id => question.id %></li>
 <% end %>
+</ul>

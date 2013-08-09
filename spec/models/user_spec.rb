@@ -21,11 +21,6 @@ let(:user) { FactoryGirl.create(:user) }
 	  	expect { user.save! }.to raise_error
 	  end
 
-	  it "should raise error when password_confirmation is blank" do
-	  	user.password_confirmation = nil
-	  	expect { user.save! }.to raise_error
-	  end
-
 	  it "should raise error when username is blank" do
 	  	user.username = nil
 	  	expect { user.save! }.to raise_error

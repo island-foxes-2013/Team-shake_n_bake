@@ -7,8 +7,14 @@ FactoryGirl.define do
   end
 
   factory :question do |f|
-  	user
+  	f.user
   	f.title "a question title here"
   	f.body "lot's of stuff goes here"
+  end
+
+  factory :answer do |f|
+    f.body "White wine goes best with chicken."
+    f.user
+    f.question
   end
 end
