@@ -1,9 +1,10 @@
+<!-- NEW FORM-TAG -->
 <div class='sign-up'>
-<%= form_for @user, url: url_for(controller: "users", action: "create") do |f| %>
-	<%= f.text_field :username, :placeholder => "username" %>
-	<%= f.email_field :email, :placeholder => "email" %>
-	<%= f.password_field :password, :placeholder => "password" %>
-	<%= f.password_field :password_confirmation, :placeholder => "confirm password" %>
-	<%= f.submit "sign up!" %>
-<% end %>
+	<%= form_tag(users_path, method: 'post') do %>
+		<%= text_field(:user, :username) %>
+		<%= email_field(:user, :email) %>
+		<%= password_field(:user, :password) %>
+		<%= password_field(:user, :password_confirmation) %>
+		<%= submit_tag('sign up!') %>
+	<% end %>
 </div>
