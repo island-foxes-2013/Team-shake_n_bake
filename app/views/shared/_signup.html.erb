@@ -1,10 +1,10 @@
 <!-- NEW FORM-TAG -->
 <div class='sign-up'>
 	<%= form_tag(users_path, method: 'post') do %>
-		<%= text_field(:user, :username) %>
-		<%= email_field(:user, :email) %>
-		<%= password_field(:user, :password) %>
-		<%= password_field(:user, :password_confirmation) %>
-		<%= submit_tag('sign up!') %>
+		<%= text_field(:user, :username, placeholder: 'Username') %>
+		<%= email_field(:user, :email, placeholder: 'Email') %>
+		<%= password_field(:user, :password, placeholder: 'Password') %>
+		<%= password_field(:user, :password_confirmation, placeholder: 'Confirm Password') %>
+		<%= submit_tag('Sign Up!', class: "btn btn-primary btn-sm") %>
 	<% end %>
 </div>
