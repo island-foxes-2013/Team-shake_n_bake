@@ -1,7 +1,6 @@
 class QuestionsController < ApplicationController
   def index
     @user = User.new
-    # @new_question = Question.new
   	@questions = Question.all
   	@questions = Question.search(params[:search])
   end
@@ -27,7 +26,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @new_question = Question.new
     @user = User.new # if User wants to Sign-Up from questions#show
   	@question = Question.find(params[:id])
     @question.answers.each do |answer|
