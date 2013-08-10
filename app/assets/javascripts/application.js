@@ -28,18 +28,13 @@ $(document).ready(function() {
 		// $(comment).appendTo('#question_body');
 	});
 
-  $('form#new_vote').on('ajax:success', function(event, response, status, xhr) {
-    console.log($(event.target[0]));
-    $(event.target).parent('li').find('.vote_count').html(xhr.responseJSON.num_votes);
-  });
+	// COLE'S TEAM
+  // $('form#new_vote').on('ajax:success', function(event, response, status, xhr) {
+  //   console.log($(event.target[0]));
+  //   $(event.target).parent('li').find('.vote_count').html(xhr.responseJSON.num_votes);
+  // });
 
-  $('.sign-in-link').click(function(e){
-  	e.preventDefault();
-  	console.log("clicked sign-in");
-  	$('.sign-in').append('hey');
-  });
-
-
+	// GREG START
 	$('.sign-in-link').on('click', function(){
 		$('.sign-up').slideUp();
 		$('.sign-in').slideDown();
@@ -59,8 +54,7 @@ $(document).ready(function() {
 			$('.sign-up').slideUp();
 		});
 	});
-
-
+	// GREG END
 });
 
 
