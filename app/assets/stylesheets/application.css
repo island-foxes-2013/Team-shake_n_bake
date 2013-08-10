@@ -43,7 +43,7 @@ html {
 }
 
 /*GREG'S CHANGES*/
-.sign-up, .sign-in, .new-question-form {
+.sign-up, .sign-in {
   display: none;
   background-color: #222;
   border-bottom-left-radius: 5px;
@@ -52,7 +52,7 @@ html {
   margin: 0;
 }
 
-.sign-in input , .sign-up input, .new-question-form input {
+.sign-in input , .sign-up input {
   text-align: center;
   margin: 5px;
   padding: 5px;

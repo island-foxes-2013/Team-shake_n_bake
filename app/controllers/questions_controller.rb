@@ -27,6 +27,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @new_question = Question.new
+    @user = User.new # if User wants to Sign-Up from questions#show
   	@question = Question.find(params[:id])
     @question.answers.each do |answer|
       answer.votes.build

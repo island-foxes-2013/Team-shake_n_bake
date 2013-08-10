@@ -63,18 +63,7 @@ $(document).ready(function() {
 			$('.navbar-inverse').css('border-bottom-right-radius', '5px');			
 		});
 	});
-
-	// GOING TO USE JAKE'S MODAL INSTEAD
-	// $('.new-question-link').on('click', function(e){
-	// 	$('.new-question-form').slideDown();
-	// 	$('input#question_title').focus();
-
-	// 	$('.new-question-form').on('mouseleave', function(){
-	// 		$('.new-question-form').slideUp();
-	// 	});
-	});
 	// GREG END
-
 });
 
 
