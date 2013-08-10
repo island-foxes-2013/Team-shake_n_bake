@@ -21,11 +21,12 @@ $(document).ready(function() {
 
 	$('#comment_form').on('ajax:success', function(e, data){
 		console.log(data);
-    var html = "<%= escape_javascript(render(:partial => 'comment_form')) %>";
-		// var comment = $('#comment_append').clone()
-		// $(comment).text(data.comment.content)
+    // var html = "<%= escape_javascript(render(:partial => 'comment_form')) %>";
+    // $("#question_body").prepend(html);
+		var comment = $('#comment_append').clone()
+		$(comment).text(data.comment.content).insertAfter($('#question_body'));
 		// console.log(comment)
-		// $(comment).appendTo('#question_body');
+		// $(comment).appendTo('#question_box');
 	});
 
 	// COLE'S TEAM
