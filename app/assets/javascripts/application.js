@@ -16,6 +16,7 @@
 
 $(document).ready(function() {
 
+
 	$('#comment_form').on('ajax:success', function(e, data){
 		console.log(data);
     var html = "<%= escape_javascript(render(:partial => 'comment_form')) %>";
@@ -35,13 +36,36 @@ $(document).ready(function() {
   	console.log("clicked sign-in");
   	$('.sign-in').append('hey');
   });
+
+
+	$('.sign-in-link').on('click', function(){
+		$('.sign-up').slideUp();
+		$('.sign-in').slideDown();
+		$('input#username').focus();
+
+		$('.sign-in').on('mouseleave', function(){
+			$('.sign-in').slideUp();
+		});
+	});
+
+	$('.sign-up-link').on('click', function(){
+		$('.sign-in').slideUp();
+		$('.sign-up').slideDown();
+		$('input#user_username').focus();
+
+		$('.sign-up').on('mouseleave', function(){
+			$('.sign-up').slideUp();
+		});
+	});
+
+
 });
 
 
 // $("#new_vote").find('[name="commit"]')
 
 
-$(function(){
-  var html = "<%= escape_javascript(render(:partial => 'pretty_box')) %>";
-  $("#container").prepend(html);
-});
+// $(function(){
+//   var html = "<%= escape_javascript(render(:partial => 'pretty_box')) %>";
+//   $("#container").prepend(html);
+// });
