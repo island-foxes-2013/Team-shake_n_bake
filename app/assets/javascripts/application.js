@@ -38,30 +38,46 @@ $(document).ready(function() {
 	$('.sign-in-link').on('click', function(){
 		$('.sign-up').slideUp();
 		$('.sign-in').slideDown();
+		$('.navbar-inverse').css('border-bottom-left-radius', '0');
+		$('.navbar-inverse').css('border-bottom-right-radius', '0');		
 		$('input#username').focus();
 
-		$('.sign-in').on('mouseleave', function(){
+		$('.sign-in').on('mouseleave', function(){			
 			$('.sign-in').slideUp();
+			$('.navbar-inverse').css('border-bottom-left-radius', '5px');
+			$('.navbar-inverse').css('border-bottom-right-radius', '5px');			
 		});
 	});
 
-	$('.sign-up-link').on('click', function(){
+	$('.sign-up-link').on('click', function(){	
 		$('.sign-in').slideUp();
 		$('.sign-up').slideDown();
+		$('.navbar-inverse').css('border-bottom-left-radius', '0');
+		$('.navbar-inverse').css('border-bottom-right-radius', '0');			
 		$('input#user_username').focus();
 
-		$('.sign-up').on('mouseleave', function(){
+		$('.sign-up').on('mouseleave', function(){			
 			$('.sign-up').slideUp();
+			$('.navbar-inverse').css('border-bottom-left-radius', '5px');
+			$('.navbar-inverse').css('border-bottom-right-radius', '5px');			
 		});
 	});
 
+	// GOING TO USE JAKE'S MODAL INSTEAD
+	// $('.new-question-link').on('click', function(e){
+	// 	$('.new-question-form').slideDown();
+	// 	$('input#question_title').focus();
+
+	// 	$('.new-question-form').on('mouseleave', function(){
+	// 		$('.new-question-form').slideUp();
+	// 	});
+	});
 	// GREG END
 
 });
 
 
 // $("#new_vote").find('[name="commit"]')
-
 
 // $(function(){
 //   var html = "<%= escape_javascript(render(:partial => 'pretty_box')) %>";

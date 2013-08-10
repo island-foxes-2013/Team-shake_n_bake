@@ -43,14 +43,17 @@ html {
 }
 
 /*GREG'S CHANGES*/
-.sign-up, .sign-in {
+.sign-up, .sign-in, .new-question-form {
   display: none;
   background-color: #222;
-  border-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding: 5px;
   margin: 0;
 }
 
-.sign-in input , .sign-up input{
+.sign-in input , .sign-up input, .new-question-form input {
+  text-align: center;
   margin: 5px;
+  padding: 5px;
 }

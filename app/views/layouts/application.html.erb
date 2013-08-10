@@ -18,7 +18,7 @@
 				<% if session[:id] %>
 				<li><%= link_to 'My Profile', user_path(current_user) %></li>
 				<li><%= link_to 'Logout', session_path(session[:id]), method: :delete %></li>
-				<li><%= link_to 'Ask a Question', new_question_path %></li>
+				<li><%= link_to 'Ask a Question', new_question_path, class: 'new-question-link', remote: true %></li>
 				<% else %> 
 				<li><%= link_to 'Sign up', new_user_path, class: 'sign-up-link', remote: true %></li>
 				<li><%= link_to 'Sign in', '/sessions', class: 'sign-in-link', remote: true %></li>
@@ -34,8 +34,8 @@
 		</div>
 	</div>
 	<% unless session[:id] %>
-	<%= render "shared/signup" %>
-	<%= render "shared/signin" %>
+		<%= render "shared/signup" %>
+		<%= render "shared/signin" %>
 	<% end %>
 	<%= yield %>
 </body>
