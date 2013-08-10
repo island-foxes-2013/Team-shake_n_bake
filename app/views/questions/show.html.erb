@@ -13,9 +13,18 @@
 
   </div>
 <p><%= image_tag(@question.user.gravatar_url, width: "40", height: "40") %><span> - <%= @question.user.username %></span></p><div class='view_info_box'><span><%= @question.answers.count %></span><div>Views</div></div><div class='view_info_box'><span><%= @question.answers.count %></span><div>Answers</div></div></div>
-<p><%= @question.body %></p>
-<%= button_to "Add Comment", nil, class: "btn btn-primary btn-xs", id: 'comment_form' %>
+<p id='question_body'><%= @question.body %></p>
+<%= render 'shared/comment_form'%>
+
+
+
+<%= form_tag question_comments_path(@question), id: 'comment_form', remote: true do %>
+<%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
+<%= text_area_tag 'comment', nil, class: "form-control"%>
+
+<% end %>
 </div>
 
 
 
+<!-- text_area_tag 'body', nil, rows: 10, cols: 25 -->
