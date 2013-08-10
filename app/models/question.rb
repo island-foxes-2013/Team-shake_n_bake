@@ -5,4 +5,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   attr_accessible :title, :body, :user_id
   validates :title, :body, presence: true
+
+  mount_uploader :image, Uploader
+
 end
