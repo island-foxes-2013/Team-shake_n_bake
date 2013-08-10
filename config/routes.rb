@@ -1,5 +1,5 @@
 ShakeNBake::Application.routes.draw do
-  resources :users
+  resources :users 
   resources :questions do
     resources :answers, only: [:new, :create]
   end

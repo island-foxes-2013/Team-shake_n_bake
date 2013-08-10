@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808182017) do
+ActiveRecord::Schema.define(:version => 20130810000039) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(:version => 20130808182017) do
     t.string   "commentable_type"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string  "file"
+    t.integer "user_id"
   end
 
   create_table "questions", :force => true do |t|
