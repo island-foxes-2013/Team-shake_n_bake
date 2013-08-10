@@ -9,8 +9,10 @@ require 'carrierwave/orm/activerecord'
 require 'mini_magick'
 
 
- CarrierWave.configure do |config|
-      config.storage :file
-      config.root =  "#{Dir.pwd}/public/" 
-      # config.autoload_paths += "#{Rails.root}/app/uploaders"
-  end
+CarrierWave.configure do |config|
+  config.permissions = 0666
+  config.directory_permissions = 0777
+  config.storage = :file
+end
+
+

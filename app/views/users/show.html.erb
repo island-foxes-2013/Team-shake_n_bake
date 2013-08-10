@@ -1,3 +1,24 @@
 <h1>Heeeyyyy, <%= @user.username %></h1>
 
-<%= image_tag(@user.gravatar_url, height: "200", width: "200") %>
+  <% if @user.image.present? %>
+  <img src='<%= @user.image_url.to_s %>'>
+  <% else %>
+  <%= image_tag(@user.gravatar_url, height: "200", width: "200") %>
+  <% end %>
+
+  <br />
+<br />
+  <button>Change Your Photo</button>
+
+  <%= form_for @user, :html => {:multipart => true} do |f| %>
+  <p>
+    <label>Upload Another Image or Delete an Uploaded Image:</label>
+    <%= f.file_field :image %>
+    <label>
+      <%= f.check_box :remove_image %>
+      Remove image
+    </label>
+    <%= f.submit "Update Image", class: "btn btn-primary btn-sm" %>
+  </p>
+<% end %>
+

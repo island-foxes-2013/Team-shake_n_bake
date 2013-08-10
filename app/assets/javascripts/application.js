@@ -16,7 +16,7 @@
 
 $(document).ready(function() {
 
-  if ($('[name="commit"]')
+  if ($('[name="commit"]')) {}
 
   $('form#new_vote').on('ajax:success', function(event, response, status, xhr) {
     console.log($(event.target[0]));

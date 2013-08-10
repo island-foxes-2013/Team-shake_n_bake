@@ -9,7 +9,7 @@ gem 'sqlite3'
 
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'quiet_assets'
 gem 'gravtastic'
 
 
