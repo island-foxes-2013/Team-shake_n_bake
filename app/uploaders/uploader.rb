@@ -3,7 +3,7 @@ class Uploader < CarrierWave::Uploader::Base
   process :resize_to_fill => [200, 200]
 
   version :thumb do
-    process :resize_to_fill => [50, 50]
+    process :resize_to_fill => [40, 40]
   end
   
   storage :file
