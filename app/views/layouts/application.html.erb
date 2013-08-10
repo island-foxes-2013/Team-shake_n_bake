@@ -19,7 +19,7 @@
 	      <li><%= link_to 'Ask a Question', new_question_path %></li>
 	    <% else %> 
 	 	    <li><%= link_to 'Sign up', new_user_path %></li>
-	 	    <li><%= link_to 'Sign in', '/sessions' %></li>
+	 	    <li><%= link_to 'Sign in', '/sessions', class: 'sign-in-link', remote: true %></li>
 	 	  <% end %>
 	 	</ul>
 	  <% if session[:id] %>
