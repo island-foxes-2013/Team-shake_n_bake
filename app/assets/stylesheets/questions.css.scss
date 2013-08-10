@@ -25,4 +25,78 @@
 	background-color: rgba(38,38,38,0.4);
 	height: 1px;
 	margin-top: 5px;
+	margin-bottom: 8px;
 }
+
+#grav_vote_box {
+  width: 100%;
+	border-radius: 10px;
+	border: #B8B8B8 solid 1px;
+	background-color: rgba(248,248,248, 1);
+	padding: 10px;
+	margin-bottom: 25px;
+}
+
+#grav_vote_box p {
+  margin: 0;
+  color: #CC6666;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+#vote_btn input {
+	padding: 0px 5px 0px 5px !important;
+	width: 40px !important;
+}
+
+#vote_btn {
+	display: inline-block !important;
+}
+
+#count {
+	display: inline-block !important;
+	vertical-align: top;
+	margin-right: 1px;
+}
+
+.badge {
+	width: 50px !important;
+	height: 40px !important;
+}
+
+#count span {
+	font-size: 25px;
+	padding-top: 7px;
+}
+
+.view_info_box {
+	width: 60px;
+	height: 60px;
+	border-radius: 10px;
+	border: #B8B8B8 solid 1px;
+	display: inline-block;
+	float: right;
+	position: relative;
+	top: -9px;
+	margin-right: 10px;
+	font-size: 12px;
+	padding-top: 7px;
+	background-color: #999999;
+	text-align: center;
+	vertical-align: bottom;
+	padding-top: 6px;
+	color: #202020;
+}
+
+.view_info_box span {
+  font-size: 30px;
+}
+
+.view_info_box div {
+  font-size: 10px;
+  position: relative;
+  top: -7px;
+}
+
