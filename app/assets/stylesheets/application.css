@@ -41,3 +41,25 @@ html {
 .brand {
 	color: #FFCC66 !important;
 }
+
+/*GREG'S CHANGES*/
+.sign-up, .sign-in {
+  display: inline-block;
+  background-color: black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.sign-in input , .sign-up input{
+  margin: 5px;
+}
+
+
+
+
+
+
+
+
+
+
