@@ -24,9 +24,14 @@
 	 	  <% end %>
 	 	</ul>
 
+    <%= form_tag questions_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+    <% end %>
 	  <% if session[:id] %>
 	    <ul id='user_ul'>
-        <%= search_field(:question, :title) %>
 	    	<li id='user'>Logged in as: <span><%= User.find(session[:id]).username %></span></li>
 
 	    </ul>
