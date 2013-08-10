@@ -16,6 +16,15 @@
 
 $(document).ready(function() {
 
+	$('#comment_form').on('ajax:success', function(e, data){
+		console.log(data);
+    var html = "<%= escape_javascript(render(:partial => 'comment_form')) %>";
+		// var comment = $('#comment_append').clone()
+		// $(comment).text(data.comment.content)
+		// console.log(comment)
+		// $(comment).appendTo('#question_body');
+	});
+
   $('form#new_vote').on('ajax:success', function(event, response, status, xhr) {
     console.log($(event.target[0]));
     $(event.target).parent('li').find('.vote_count').html(xhr.responseJSON.num_votes);
@@ -30,3 +39,9 @@ $(document).ready(function() {
 
 
 // $("#new_vote").find('[name="commit"]')
+
+
+$(function(){
+  var html = "<%= escape_javascript(render(:partial => 'pretty_box')) %>";
+  $("#container").prepend(html);
+});
