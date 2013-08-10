@@ -12,7 +12,7 @@
     <%= button_to "dwn", nil, class: "btn btn-danger btn-xs" %>
 
   </div>
-<p><%= image_tag(@question.user.gravatar_url, width: "30", height: "30") %><span> - <%= @question.user.username %></span></p><div class='view_info_box'><span><%= @question.answers.count %></span><div>Views</div></div><div class='view_info_box'><span><%= @question.answers.count %></span><div>Answers</div></div></div>
+<p><%= image_tag(@question.user.gravatar_url, width: "40", height: "40") %><span> - <%= @question.user.username %></span></p><div class='view_info_box'><span><%= @question.answers.count %></span><div>Views</div></div><div class='view_info_box'><span><%= @question.answers.count %></span><div>Answers</div></div></div>
 <p><%= @question.body %></p>
 <%= button_to "Add Comment", nil, class: "btn btn-primary btn-xs", id: 'comment_form' %>
 </div>
