@@ -16,16 +16,48 @@
 
 $(document).ready(function() {
 
-  $('form#new_vote').on('ajax:success', function(event, response, status, xhr) {
-    console.log($(event.target[0]));
-    $(event.target).parent('li').find('.vote_count').html(xhr.responseJSON.num_votes);
-  });
+  // $('form#new_vote').on('ajax:success', function(event, response, status, xhr) {
+  //   console.log($(event.target[0]));
+  //   $(event.target).parent('li').find('.vote_count').html(xhr.responseJSON.num_votes);
+  // });
 
-  $('.sign-in-link').click(function(e){
-  	e.preventDefault();
-  	console.log("clicked sign-in");
-  	$('.sign-in').append('hey');
-  });
+	$('.sign-in-link').on('click', function(){
+		$('.sign-up').slideUp();
+		$('.sign-in').slideDown();
+		$('input#username').focus();
+
+		$('.sign-in').on('mouseleave', function(){
+			$('.sign-in').slideUp();
+		});
+	});
+
+	$('.sign-up-link').on('click', function(){
+		$('.sign-in').slideUp();
+		$('.sign-up').slideDown();
+		$('input#user_username').focus();
+
+		$('.sign-up').on('mouseleave', function(){
+			$('.sign-up').slideUp();
+		});
+	});
+  // $('.sign-in-link').click(function(e){
+  // 	e.preventDefault();
+  // 	console.log("clicked sign-in");
+  	// $('.sign-in').show();
+  	// $('.sign-in').hover(
+  	// 	$(this).animate({
+  	// 		opacity: '0.5',
+  	// 		height: '110px'
+  	// 	});
+  	// );
+
+  	// $('.sign-in').animate({
+	  //   // right:'250px',
+	  //   opacity:'0.5',
+	  //   height: '110px'
+	  //   // width:'150px'
+  	// });
+  // });
 });
 
 

@@ -44,22 +44,13 @@ html {
 
 /*GREG'S CHANGES*/
 .sign-up, .sign-in {
-  display: inline-block;
-  background-color: black;
+  display: none;
+  background-color: #222;
   border-radius: 5px;
   padding: 5px;
+  margin: 0;
 }
 
 .sign-in input , .sign-up input{
   margin: 5px;
 }
-
-
-
-
-
-
-
-
-
-
