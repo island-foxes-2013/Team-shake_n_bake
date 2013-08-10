@@ -1,0 +1,7 @@
+<div class='sign-in'>
+<%= form_tag(sessions_path, method: 'post') do %>
+  <%= text_field_tag(:username, nil, placeholder: 'username')%>
+  <%= password_field_tag(:password, nil, placeholder: 'Password') %>
+  <%= submit_tag("sign in!") %>
+<% end %>
+</div>

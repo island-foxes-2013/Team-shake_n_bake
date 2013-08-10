@@ -2992,6 +2992,7 @@ button.close {
 
 .navbar-inverse {
   background-color: #222222;
+  margin-bottom: 0;
 }
 
 .navbar-inverse .navbar-brand {
