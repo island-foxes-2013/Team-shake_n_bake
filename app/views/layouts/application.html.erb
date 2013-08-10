@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ShakeNBake</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "bootstrap" %>
-  <%= csrf_meta_tags %>
+	<title>ShakeNBake</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "bootstrap" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-		<ul class="nav navbar-nav">
-			<li><%= link_to 'Shake \'n\' Bake', questions_path, class: 'brand' %></li>
 
-	    <% if session[:id] %>
-      <li><%= link_to 'My Profile', user_path(current_user) %></li>
-	      <li><%= link_to 'Logout', session_path(session[:id]), method: :delete %></li>
-	      <li><%= link_to 'Ask a Question', new_question_path %></li>
-	    <% else %> 
-	 	    <li><%= link_to 'Sign up', new_user_path, class: 'sign-up-link', remote: true %></li>
-	 	    <li><%= link_to 'Sign in', '/sessions', class: 'sign-in-link', remote: true %></li>
-	 	  <% end %>
-	 	</ul>
+	<div class="navbar navbar-inverse">
+		<div class="navbar-inner">
+			<ul class="nav navbar-nav">
+				<li><%= link_to 'Shake \'n\' Bake', questions_path, class: 'brand' %></li>
 
+				<% if session[:id] %>
+				<li><%= link_to 'My Profile', user_path(current_user) %></li>
+				<li><%= link_to 'Logout', session_path(session[:id]), method: :delete %></li>
+				<li><%= link_to 'Ask a Question', new_question_path %></li>
+				<% else %> 
+				<li><%= link_to 'Sign up', new_user_path, class: 'sign-up-link', remote: true %></li>
+				<li><%= link_to 'Sign in', '/sessions', class: 'sign-in-link', remote: true %></li>
+				<% end %>
+			</ul>
     <%= form_tag questions_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
@@ -34,12 +34,18 @@
 	    <ul id='user_ul'>
 	    	<li id='user'>Logged in as: <span><%= User.find(session[:id]).username %></span></li>
 
-	    </ul>
-	  <% end %>
+			<% if session[:id] %>
+			<ul id='user_ul'>
+				<%= search_field(:question, :title) %>
+				<li id='user'>Logged in as: <span><%= User.find(session[:id]).username %></span></li>
+			</ul>
+			<% end %>
+		</div>
 	</div>
-</div>
-<%= render "shared/signup" %>
-<%= render "shared/signin" %>
-<%= yield %>
+	<% unless session[:id] %>
+	<%= render "shared/signup" %>
+	<%= render "shared/signin" %>
+	<% end %>
+	<%= yield %>
 </body>
 </html>
