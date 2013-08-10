@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   def create
   	 	p params[:question_id]
+  	 	user = User.find(session[:id])
   	 if params.has_key?('question_id')
-       @comment = Question.find(params[:question_id]).comments.create(content: params[:comment], user_id: session[:id])
+       @comment = Question.find(params[:question_id]).comments.create(content: params[:comment], user_id: user.id)
        # render json: render_to_string(partial: 'form', locals: { bananas: 'hello' }).to_json
        # format.json { render json: @comment, status: :create, location: @comment}   
-     render json: { comment: @comment }
+      render json: { comment: @comment, user: user }
      end
 # redirect_to question_path(params[:question_id])
  

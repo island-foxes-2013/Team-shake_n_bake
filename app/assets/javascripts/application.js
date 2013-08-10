@@ -17,23 +17,14 @@
 $(document).ready(function() {
 
 
-  if ($('[name="commit"]')) {}
-
+  //Jake-y Poo
 	$('#comment_form').on('ajax:success', function(e, data){
-		console.log(data);
-    // var html = "<%= escape_javascript(render(:partial => 'comment_form')) %>";
-    // $("#question_body").prepend(html);
 		var comment = $('#comment_append').clone()
-		$(comment).text(data.comment.content).insertAfter($('#question_body'));
-		// console.log(comment)
-		// $(comment).appendTo('#question_box');
+		$(comment).text(data.comment.content).append('<br><span>comment by: ' + '<b>' + data.user.username + '</b>' + ' on ' + formatDate() + '</span>').insertAfter($('#question_box p').last());
+		$('#question_box p').last().append('<hr />')
+		$('#comment_form textarea').val('')
 	});
-
-	// COLE'S TEAM
-  // $('form#new_vote').on('ajax:success', function(event, response, status, xhr) {
-  //   console.log($(event.target[0]));
-  //   $(event.target).parent('li').find('.vote_count').html(xhr.responseJSON.num_votes);
-  // });
+      
 
 	// GREG START
 	$('.sign-in-link').on('click', function(){
@@ -60,11 +51,12 @@ $(document).ready(function() {
 
 });
 
+//Jake-y Poo
+function formatDate() {
+	var date = new Date();
+  var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  return months[date.getMonth()] + ', ' + date.getDate() + ' - ' + date.getFullYear();
+};
 
-// $("#new_vote").find('[name="commit"]')
 
 
-// $(function(){
-//   var html = "<%= escape_javascript(render(:partial => 'pretty_box')) %>";
-//   $("#container").prepend(html);
-// });
