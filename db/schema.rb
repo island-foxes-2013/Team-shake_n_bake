@@ -58,6 +58,4 @@ ActiveRecord::Schema.define(:version => 20130810235216) do
     t.string   "vote"
   end
 
-  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
-
 end

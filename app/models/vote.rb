@@ -18,8 +18,10 @@ class Vote < ActiveRecord::Base
   		p 'check 2'
   		if @vote_request == 'up'
   			self.up_vote
+  			return 'voted up'
   		elsif @vote_request == 'dwn'
   			self.dwn_vote
+  			return 'voted down'
   		end
   	end
   	@vote_check_result
@@ -38,17 +40,17 @@ class Vote < ActiveRecord::Base
   		p @vote_request
   		if @vote.vote == @vote_request
   			p 'this should be the raise statement'
-  			return @vote_request
+  			return ('Already voted' + ' ' + @vote_request)
   		else
   			p 'trying to change the value in object'
         if @vote.vote == 'up'
         	p 'change to dwn'
         	@vote.update_attribute(:vote, 'dwn')
-        	return 'vote created'
+        	return 'vote changed down'
         else
         	p 'change to up'
         	@vote.update_attribute(:vote, 'up')
-        	return 'vote created'
+        	return 'vote changed up'
         end 
   	  end
   	end
@@ -56,9 +58,11 @@ class Vote < ActiveRecord::Base
 
   def self.up_vote
   	@q_a.votes.create(user_id: @user.id, vote: 'up')
+  	return 'up'
   end
 
   def self.dwn_vote
   	@q_a.votes.create(user_id: @user.id, vote: 'dwn')
+  	return 'dwn'
   end
 end
