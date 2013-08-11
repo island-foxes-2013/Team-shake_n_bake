@@ -3,44 +3,89 @@
 
   <h1><%= @question.title %></h1>
   <hr />
-  <div id="grav_vote_box">
-    <div id='count'>
-      <span class="badge"><%= @question.votes.count %></span>
+
+  <div class="grav_vote_box">
+    <div class='count'>
+      <span class="badge"><%= @question.votes.where(vote: 'up').count %></span>
     </div>
-    <div id='vote_btn'>
-      <%= button_to "up", question_votes_path(@question, { vote: 'up'}), class: "btn btn-success btn-xs",  id: 'voteup', remote: true %>
-      <%= button_to "dwn", question_votes_path(@question, { vote: 'dwn'}), class: "btn btn-danger btn-xs", id: 'votedwn', remote: true %>
+
+    <div class='vote_btn'>
+      <%= button_to "up", question_votes_path(@question, { vote: 'up'}), class: "btn btn-success btn-xs", remote: true %>
+      <%= button_to "dwn", question_votes_path(@question, { vote: 'dwn'}), class: "btn btn-danger btn-xs", remote: true %>
     </div>
+
     <% if @question.user.image.present? %>
-      <p><img src='<%= @question.user.image.thumb.to_s %>'><span> - <%= @question.user.username %></span></p>
+      <p><span>Question submitted by: <span style='color: #3366FF;'><b><%= @question.user.username %></b> </span></span><img src='<%= @question.user.image.thumb.to_s %>'></p>
     <% else %>
-      <p><%= image_tag(@question.user.gravatar_url, width: "40", height: "40") %><span> - <%= @question.user.username %></span></p>
+      <p><span>Question submitted by: <span style='color: #3366FF;'><b><%= @question.user.username %></b> </span></span><%= image_tag(@question.user.gravatar_url, width: "40", height: "40") %></p>
     <% end %>
+
     <div class='view_info_box'><span><%= @question.view %></span><div>Views</div></div>
     <div class='view_info_box'><span><%= @question.answers.count %></span><div>Answers</div></div>
   </div>
+
   <p id='question_body'><%= @question.body %></p>
   <img src='<%= @question.image_url.to_s %>'>
   <hr />
 
-    <div id='comment_begin'></div>
+  <div class='comment_begin'></div>
+  <% if !@question.comments.empty? %>
     <% @question.comments.each do |comment| %>
-    <p id='comment_append'><%= comment.content %>
-      <br><span id='comment_date'>comment by: <b>jim</b> on <%= comment.created_at.strftime('%B, %d, %Y') %>, </span></p>
+      <p class='comment_append'><%= comment.content %>
+      <br><span class='comment_date'>comment by: <b><%= comment.user.username %></b> on <%= comment.created_at.strftime('%B, %d, %Y') %>, </span></p>
       <hr />
-      <%end%>
+    <% end %>
+  <% end %>
 
- 
-
-
-
-
-
-    <% if session[:id] %>
+  <% if session[:id] %>
     <%= form_tag question_comments_path(@question), id: 'comment_form', remote: true do %>
-    <%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
-    <%= text_area_tag 'comment', nil, class: "form-control"%>
+      <%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
+      <%= text_area_tag 'comment', nil, class: "form-control"%>
     <% end %>
-    <% end %>
-  </div>
-   </div>
+  <% end %><br>
+  <%= link_to 'Answer this Question', '#answerModal', data: {toggle: 'modal'}, id: 'answer_btn', class: "btn btn-success" %>
+  <%= render "shared/answer_modal" %>
+</div>
+
+
+<% if @question.answers.empty? %>
+  <script>$('#answer_btn').text('Be the first to answer this question!')</script>
+<% else %>
+  <script>$('#answer_btn').text('Submit an Answer')</script>
+  <% @question.answers.each do |answer| %>
+    <div id='answer_box'>
+      <div class="grav_vote_box">
+        <div class='count'>
+          <span class="badge"><%= answer.votes.where(vote: 'up').count %></span>
+        </div>
+        <div class='vote_btn'>
+          <%= button_to "up", answer_votes_path(answer, { vote: 'up'}), class: "btn btn-success btn-xs", remote: true %>
+          <%= button_to "dwn", answer_votes_path(answer, { vote: 'dwn'}), class: "btn btn-danger btn-xs", remote: true %>
+        </div>
+        <% if answer.user.image.present? %>
+          <p><span>Answer submitted by: <span style='color: #3366FF;'><b><%= answer.user.username %></b> </span></span><img src='<%= answer.user.image.thumb.to_s %>'></p>
+        <% else %>
+          <p><span>Answer submitted by: <span style='color: #3366FF;'><b><%= answer.user.username %></b> </span></span><%= image_tag(answer.user.gravatar_url, width: "40", height: "40") %></p>
+        <% end %>
+      </div>
+      <p id='answer_body'><%= answer.body %></p>
+      <hr />
+
+      <div class='comment_begin'></div>
+      <% if !answer.comments.empty? %>
+        <% answer.comments.each do |comment| %>
+          <p class='comment_append'><%= comment.content %>
+          <br><span class='comment_date'>comment by: <b><%= comment.user.username %></b> on <%= comment.created_at.strftime('%B, %d, %Y') %>, </span></p>
+          <hr />
+        <% end %>
+      <% end %>
+      <% if session[:id] %>
+        <%= form_tag question_comments_path(answer), id: 'comment_form', remote: true do %>
+          <%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
+          <%= text_area_tag 'comment', nil, class: "form-control"%>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+

@@ -12,57 +12,43 @@ class Vote < ActiveRecord::Base
   	@q_a = q_a
   	@user = user
   	@vote_request = vote_request
-    p "check 1"
     @vote_check_result = self.check_vote
-  	if @vote_check_result == false
-  		p 'check 2'
-  		if @vote_request == 'up'
-  			self.up_vote
-  			return 'voted up'
-  		elsif @vote_request == 'dwn'
-  			self.dwn_vote
-  			return 'voted down'
-  		end
-  	end
-  	@vote_check_result
+    if @vote_check_result == false
+      if @vote_request == 'up'
+        self.up_vote
+        return 'You voted up'
+      elsif @vote_request == 'dwn'
+        self.dwn_vote
+        return 'You voted down'
+      end
+    end
+    @vote_check_result
   end
 
   def self.check_vote
-  	p 'check 3'
-  	if @q_a.votes.where(user_id: @user.id).empty?
-  		p 'check false no votes'
-  		return false
-  	else
-  		p 'made it through else'
-  		@vote = @q_a.votes.where(user_id: @user.id).first
-  		p @vote
-  		p @vote.vote
-  		p @vote_request
-  		if @vote.vote == @vote_request
-  			p 'this should be the raise statement'
-  			return ('Already voted' + ' ' + @vote_request)
-  		else
-  			p 'trying to change the value in object'
+    if @q_a.votes.where(user_id: @user.id).empty?
+      return false
+    else
+      @vote = @q_a.votes.where(user_id: @user.id).first
+      if @vote.vote == @vote_request
+        return ('You already voted' + ' ' + @vote_request)
+      else
         if @vote.vote == 'up'
-        	p 'change to dwn'
-        	@vote.update_attribute(:vote, 'dwn')
-        	return 'vote changed down'
+          @vote.update_attribute(:vote, 'dwn')
+          return 'You changed your vote to down'
         else
-        	p 'change to up'
-        	@vote.update_attribute(:vote, 'up')
-        	return 'vote changed up'
+          @vote.update_attribute(:vote, 'up')
+          return 'You changed your vote to up'
         end 
-  	  end
-  	end
+      end
+    end
   end
 
   def self.up_vote
-  	@q_a.votes.create(user_id: @user.id, vote: 'up')
-  	return 'up'
+    @q_a.votes.create(user_id: @user.id, vote: 'up')
   end
 
   def self.dwn_vote
-  	@q_a.votes.create(user_id: @user.id, vote: 'dwn')
-  	return 'dwn'
+    @q_a.votes.create(user_id: @user.id, vote: 'dwn')
   end
 end

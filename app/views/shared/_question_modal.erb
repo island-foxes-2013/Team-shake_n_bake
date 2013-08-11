@@ -1,7 +1,3 @@
-<!-- Button trigger modal -->
-<!--  <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Launch demo modal</a> -->
-
-  <!-- Modal -->
   <div class="modal fade" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -10,18 +6,16 @@
           <h4 class="modal-title">New Question</h4>
         </div>
         <div class="modal-body">
-
           <%= form_tag(questions_path, method: 'post', :multipart => true) do %>
             <%= label(:question, :title) %><br>
-            <%= text_field(:question, :title) %><br><br>
+            <%= text_field(:question, :title, class: "form-control") %><br><br>
             <%= label(:question, :body) %><br>
-            <%= text_area(:question, :body, row: 20, cols: 75) %><br><br>
+            <%= text_area(:question, :body, row: 20, cols: 75, class: "form-control") %><br><br>
             <%= label(:question, :image) %>
             <%= file_field(:question, :image) %>
-            <%= submit_tag("Create Question!", class: "btn btn-primary btn-sm") %>
+            <br><%= submit_tag("Create Question!", class: "btn btn-primary btn-sm") %>
           <% end %>
-
         </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+      </div>
+    </div>
+  </div>
