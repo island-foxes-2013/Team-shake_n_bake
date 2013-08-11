@@ -11,13 +11,13 @@
         </div>
         <div class="modal-body">
 
-          <%= form_tag(questions_path, method: 'post') do %>
+          <%= form_tag(questions_path, method: 'post', :multipart => true) do %>
             <%= label(:question, :title) %><br>
             <%= text_field(:question, :title) %><br><br>
             <%= label(:question, :body) %><br>
             <%= text_area(:question, :body, row: 20, cols: 75) %><br><br>
-            <%#= f.label :image %>
-            <%#= f.file_field :image %>
+            <%= label(:question, :image) %>
+            <%= file_field(:question, :image) %>
             <%= submit_tag("Create Question!", class: "btn btn-primary btn-sm") %>
           <% end %>
 
