@@ -17,6 +17,9 @@ FactoryGirl.define do
     f.user
     f.question
   end
-end
 
-# dont need f. before these
+  # factory :comment do
+  #   content "sample comment maaaaang"
+  #   user
+  # end
+end
