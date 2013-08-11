@@ -58,6 +58,53 @@ html {
   padding: 5px;
 }
 
+#vote-box, #answer-box, #view-box {
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  padding: 5px;
+  margin: 0 5px;
+  /*border: 1px solid red;*/
+}
+
+.number-show {
+  font-weight: bold;
+/*  font-size: 1.8em;*/
+  color: green;
+}
+
+#vote-box {
+
+}
+
+#answer-box {
+
+}
+
+#view-box {
+
+}
+
+#title-box {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-left: 50px;
+  margin-top: 0px;
+  width: 600px;
+  height: 1.5em;
+  overflow:hidden;
+}
+
+#created-by {
+  margin-left: 40px;
+  display: inline-block;
+  font-size: 80%;
+  position: relative;
+  height: 40px;
+  vertical-align: middle;
+}
+
 /*DIGG'S PAGINATION STYLING*/
 .digg_pagination {
   background: white;

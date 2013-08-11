@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130810235216) do
+ActiveRecord::Schema.define(:version => 20130811204158) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(:version => 20130810235216) do
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "image"
-    t.integer  "view"
+    t.integer  "view",       :default => 0
   end
 
   create_table "users", :force => true do |t|
@@ -57,5 +57,7 @@ ActiveRecord::Schema.define(:version => 20130810235216) do
     t.datetime "updated_at",     :null => false
     t.string   "vote"
   end
+
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end
