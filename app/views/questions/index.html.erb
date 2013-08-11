@@ -1,9 +1,12 @@
 <h1>Shake 'n' Bake</h1>
 
 <%= image_tag('http://i467.photobucket.com/albums/rr34/jaylvsanna/ShakeAndBake_Fullpic_1.gif', height: "200", width:  "300") %>
+
 <h4>The Hungies Overload</h4>
-<ul id='list'>
-<% @questions.each do |question| %>
-	<li><%= link_to question.title, question_path(question), :id => question.id %></li>
+
+<% @pag_questions.each do |question| %>
+	<li><%= link_to question.title, question_path(question)  %></li>
 <% end %>
-</ul>
+
+<div class='digg_pagination'><%= will_paginate @pag_questions %></div>
+

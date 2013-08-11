@@ -67,3 +67,6 @@ gem 'factory_girl_rails'
 
 # To use debugger
 gem 'debugger'
+
+gem 'will_paginate', '~> 3.0.4'
+

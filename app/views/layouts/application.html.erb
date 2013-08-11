@@ -18,7 +18,7 @@
 				<% if session[:id] %>
 				<li><%= link_to 'My Profile', user_path(current_user) %></li>
 				<li><%= link_to 'Logout', session_path(session[:id]), method: :delete %></li>
-				<li><%= link_to 'Ask a Question', '#myModal', data: { toggle: 'modal'} %></li>
+				<li><%= link_to 'Ask a Question', '#myModal', data: {toggle: 'modal'} %></li>
 				<%= render "shared/question_modal" %>
 				<% else %> 
 				<li><%= link_to 'Sign up', new_user_path, class: 'sign-up-link', remote: true %></li>
@@ -40,8 +40,8 @@
 		</div>
 	</div>
 	<% unless session[:id] %>
-	<%= render "shared/signup" %>
-	<%= render "shared/signin" %>
+		<%= render "shared/signup" %>
+		<%= render "shared/signin" %>
 	<% end %>
 	<%= yield %>
 </body>

@@ -34,20 +34,28 @@ $(document).ready(function() {
 	$('.sign-in-link').on('click', function(){
 		$('.sign-up').slideUp();
 		$('.sign-in').slideDown();
+		$('.navbar-inverse').css('border-bottom-left-radius', '0');
+		$('.navbar-inverse').css('border-bottom-right-radius', '0');		
 		$('input#username').focus();
 
-		$('.sign-in').on('mouseleave', function(){
+		$('.sign-in').on('mouseleave', function(){			
 			$('.sign-in').slideUp();
+			$('.navbar-inverse').css('border-bottom-left-radius', '5px');
+			$('.navbar-inverse').css('border-bottom-right-radius', '5px');			
 		});
 	});
 
-	$('.sign-up-link').on('click', function(){
+	$('.sign-up-link').on('click', function(){	
 		$('.sign-in').slideUp();
 		$('.sign-up').slideDown();
+		$('.navbar-inverse').css('border-bottom-left-radius', '0');
+		$('.navbar-inverse').css('border-bottom-right-radius', '0');			
 		$('input#user_username').focus();
 
-		$('.sign-up').on('mouseleave', function(){
+		$('.sign-up').on('mouseleave', function(){			
 			$('.sign-up').slideUp();
+			$('.navbar-inverse').css('border-bottom-left-radius', '5px');
+			$('.navbar-inverse').css('border-bottom-right-radius', '5px');			
 		});
 	});
 	// GREG END
@@ -61,4 +69,8 @@ function formatDate() {
 };
 
 
+// $(function(){
+//   var html = "<%= escape_javascript(render(:partial => 'pretty_box')) %>";
+//   $("#container").prepend(html);
+// });
 
