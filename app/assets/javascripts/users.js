@@ -6,4 +6,14 @@ $( document ).ready(function() {
     $("button").on("click", function(event) {
       $(".edit_user").show()
     });
+
+    $('#color-form').submit(function() {
+      $.cookie('background_color', $('input[name="color"]').val(), { expires: 7, path: '/', domain: ''});
+      location.reload();
+      return false;
+    });
+
+
+    $('.profile').css('background-color', $.cookie('background_color'));
+    
 });

@@ -5,3 +5,36 @@
 .edit_user {
   display: none;  
 }
+
+.profile {
+  width: 60%;
+  border-radius: 10px;
+  border: solid thin;
+  background-color: rgba(248,248,248, 1);
+  margin-left: 20%;
+  padding: 10px 20px 10px 30px;
+  position: absolute;
+}
+
+h1 {
+  text-align: center;
+
+}
+
+img {
+  border-radius: 20px;
+}
+
+.image {
+  float: left;
+  width: 40%;
+}
+
+.questions {
+  float: right;
+  width: 60%;
+  text-align: left;
+  position: relative;
+  border: solid 2px;
+  border-radius: 20px;
+}
