@@ -8,7 +8,7 @@ $( document ).ready(function() {
     });
 
     $('#color-form').submit(function() {
-      $.cookie('background_color', $('input[name="color"]').val(), { expires: 7, path: '/', domain: ''});
+      $.cookie('background_color', $('input[name="color"]').val(), { path: '/', domain: ''});
       location.reload();
       return false;
     });
