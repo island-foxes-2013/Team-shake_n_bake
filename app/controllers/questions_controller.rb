@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   def index
     @user = User.new
     @pag_questions = Question.paginate(page: params[:page]).order('id DESC')
-  	@questions = Question.search(params[:search])
+  	@questions = Question.search(params[:search]).paginate(page: params[:page]).order('id DESC')
   end
 
   def new

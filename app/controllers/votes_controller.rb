@@ -1,16 +1,20 @@
 class VotesController < ApplicationController
 
   def create
-    p params
-    # vote = Vote.new(params[:vote].merge(user: current_user))
-    # if vote.save
-    #   render json: {
-    #     num_votes: vote.answer.votes.count
-    #   }
-    # else
-    #   render json: {
-    #     errors: vote.errors.full_messages
-    #   }, status: :unprocessible_entity
-    # end
+    user = User.find(session[:id])
+    vote_request = params[:vote]
+
+    if params.has_key?('question_id')
+      question = Question.find(params[:question_id])
+      vote = Vote.create_vote(question, user, vote_request)
+      render json: { vote: vote, count: question.votes.where(vote: 'up').count }
+    elsif params.has_key?('answer_id')
+      answer = answer.find(params[:answer_id])
+      vote = Vote.create_vote(answer, user, vote_request)
+      render json: { vote: vote, count: answer.votes.where(vote: 'up').count }
+    else
+      render json: { error: 'something went terribly wrong' }
+    end
   end
 end
+

@@ -11,9 +11,9 @@ class Question < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%"])
+      where('title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%")
     else
-      find(:all)
+      scoped
     end
   end
 

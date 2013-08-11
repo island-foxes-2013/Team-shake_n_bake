@@ -41,18 +41,19 @@ populate_answers
 def populate_votes
 	questions = Question.all
 	answers = Answer.all
+	vote_type = ['up', 'dwn', 'up', 'dwn']
 	questions.each do |question|
 		user_id = @user_ids.clone
     n = rand(0..20)
 	  n.times do |vote|
-			question.votes.create(user_id: user_id.pop)
+			question.votes.create(user_id: user_id.pop, vote: vote_type.sample)
 		end
 	end
 	answers.each do |answer|
 		user_id = @user_ids.clone
     n = rand(0..20)
 	  n.times do |vote|
-			answer.votes.create(user_id: user_id.pop)
+			answer.votes.create(user_id: user_id.pop, vote: vote_type.sample)
 		end
 	end
 end
