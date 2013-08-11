@@ -19,10 +19,14 @@ $(document).ready(function() {
 
   //Jake-y Poo
 	$('#comment_form').on('ajax:success', function(e, data){
-		var comment = $('#comment_append').clone()
-		$(comment).text(data.comment.content).append('<br><span>comment by: ' + '<b>' + data.user.username + '</b>' + ' on ' + formatDate() + '</span>').insertAfter($('#question_box p').last());
-		$('#question_box p').last().append('<hr />')
-		$('#comment_form textarea').val('')
+		var comment = $('#comment_append').clone();
+		$('#question_box p').last().append('<hr />');
+		$(comment).text(data.comment.content).append('<br><span id="comment_date">comment by: ' + '<b>' + data.user.username + '</b>' + ' on ' + formatDate() + '</span>').insertAfter($('#question_box p').last());
+		$('#comment_form textarea').val('');
+	});
+
+	$('.button_to').on('ajax:success', function(e, data){
+		console.log(data)
 	});
       
 
@@ -46,9 +50,7 @@ $(document).ready(function() {
 			$('.sign-up').slideUp();
 		});
 	});
-
 	// GREG END
-
 });
 
 //Jake-y Poo
