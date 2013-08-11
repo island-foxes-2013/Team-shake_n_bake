@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
   def index
     @user = User.new
-  	@questions = Question.all
+    # @pag_questions = Question.paginate(page: params[:page])
+    @pag_questions = Question.paginate(page: params[:page]).order('id DESC')
   	@questions = Question.search(params[:search])
   end
 
@@ -28,6 +29,7 @@ class QuestionsController < ApplicationController
   def show
     @user = User.new # if User wants to Sign-Up from questions#show
   	@question = Question.find(params[:id])
+    @question.increment!('view')
     @question.answers.each do |answer|
       answer.votes.build
     end
