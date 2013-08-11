@@ -1,26 +1,40 @@
 <h1>Heeeyyyy, <%= @user.username %></h1>
+<div class="profile">
+  <div class="image">
+    <% if @user.image.present? %>
+    <img src='<%= @user.image_url.to_s %>'>
+    <% else %>
+    <%= image_tag(@user.gravatar_url, height: "300", width: "300") %>
+    <% end %>
+    <br />
+    <br />
+    <button>Change Your Photo</button><br />
+    <form id="color-form">
+      <input type="text" id="color" name="color" placeholder="Type Color Here" /><br />
+      <input type="submit" value="Change Background Color" />
+    </form>
 
-  <% if @user.image.present? %>
-  <img src='<%= @user.image_url.to_s %>'>
-  <% else %>
-  <%= image_tag(@user.gravatar_url, height: "200", width: "200") %>
-  <% end %>
-
-  <br />
-<br />
-  <button>Change Your Photo</button>
-
-  <%= form_for @user, :html => {:multipart => true} do |f| %>
-  <p>
-    <label>Upload Another Image or Delete an Uploaded Image:</label>
-    <%= f.file_field :image %>
-    <label>
-      <%= f.check_box :remove_image %>
-      Remove image
-    </label>
-    <%= f.submit "Update Image", class: "btn btn-primary btn-sm" %>
-  </p>
-<% end %>
+    <%= form_for @user, :html => {:multipart => true} do |f| %>
+    <p>
+      <label>Upload Another Image or Delete an Uploaded Image:</label>
+      <%= f.file_field :image %>
+      <label>
+        <%= f.check_box :remove_image %>
+        Remove image
+      </label>
+      <%= f.submit "Update Image", class: "btn btn-primary btn-sm" %>
+    </p>
+    <% end %>
+  </div>
+  <div class="questions">
+    <h3>My Questions:</h3>
+    <ul>
+    <% @user.questions.each do |question| %>
+    <li><a href="/users/questions/<%= question.id %>"><%= question.title %></a></li>
+    <% end %>
+  </ul>
+  </div>
+</div>
 
 
 
