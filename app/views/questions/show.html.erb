@@ -39,7 +39,7 @@
   <% end %>
 
   <% if session[:id] %>
-    <%= form_tag question_comments_path(@question), id: 'comment_form', remote: true do %>
+    <%= form_tag question_comments_path(@question), class: 'comment_form', remote: true do %>
       <%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
       <%= text_area_tag 'comment', nil, class: "form-control"%>
     <% end %>
@@ -54,7 +54,7 @@
 <% else %>
   <script>$('#answer_btn').text('Submit an Answer')</script>
   <% @question.answers.each do |answer| %>
-    <div id='answer_box'>
+    <div class='answer_box'>
       <div class="grav_vote_box">
         <div class='count'>
           <span class="badge"><%= answer.votes.where(vote: 'up').count %></span>
@@ -81,7 +81,7 @@
         <% end %>
       <% end %>
       <% if session[:id] %>
-        <%= form_tag question_comments_path(answer), id: 'comment_form', remote: true do %>
+        <%= form_tag answer_comments_path(answer), class: 'comment_form', remote: true do %>
           <%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
           <%= text_area_tag 'comment', nil, class: "form-control"%>
         <% end %>
@@ -89,5 +89,10 @@
     </div>
   <% end %>
 <% end %>
->>>>>>> master
+
+
+<div id="hidden">
+  <p class='comment_append'></p>
+</div>
+
 
