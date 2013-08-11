@@ -1,7 +1,14 @@
 require 'spec_helper'
 
 describe Question do
-	let(:question) {Question.new(title:"demo title", body:"this is a demo body")}
+	it {should belong_to(:user)}
+	it {should have_many(:answers)}
+	it {should have_many(:comments)}
+
+	let(:question) {Question.create(title:"demo title", body:"this is a demo body")}
+	let(:user) {create(:user)}
+	let(:answer) {create(:answer)}
+	let(:comment) {Comment.new(content: "I am a test comment")}
 
 	context "when title is empty" do
 		it "should not save" do

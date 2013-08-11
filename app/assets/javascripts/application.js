@@ -26,9 +26,17 @@ $(document).ready(function() {
 	});
 
 	$('.button_to').on('ajax:success', function(e, data){
-		console.log(data)
+		if ($('#vote_message').length == 0) {
+		  $('#count span').text(data.count);
+		  $('#question_box h1').append('<span id="vote_message" style=color:rgba(144,0,0,0.7);font-size:15px;margin-left:5px;> - ' + data.vote + '</span>');
+		  setTimeout(function() {
+        $('#vote_message').fadeOut(1000, function(){
+          $('#vote_message').remove();
+        });
+      }, 600);
+    };
 	});
-      
+
 
 	// GREG START
 	$('.sign-in-link').on('click', function(){
