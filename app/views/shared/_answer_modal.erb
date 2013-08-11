@@ -6,9 +6,8 @@
           <h4 class="modal-title">New Answer</h4>
         </div>
         <div class="modal-body">
-          <%= form_tag(question_answers_path(@question), method: 'post', :multipart => true, remote: true) do %>
-            <%= label(:answer, :title) %><br>
-            <%= text_field(:answer, :title, class: "form-control") %><br><br>
+          <%= form_tag(question_answers_path(@question), method: 'post', :multipart => true, id: 'answer_modal', remote: true) do %>
+            <%= hidden_field(:answer, :question_id, value: @question.id) %>
             <%= label(:answer, :body) %><br>
             <%= text_area(:answer, :body, row: 20, cols: 75, class: "form-control") %><br><br>
             <%= label(:answer, :image) %>
