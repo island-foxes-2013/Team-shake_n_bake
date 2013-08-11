@@ -27,4 +27,16 @@ describe Question do
 			expect {question.save}.to be_true
 		end
 	end
+
+	context "when there are search parameters" do
+		it "should narrow down the displayed questions" do
+			Question.search('hello').should_not eq(Question.all)
+		end
+	end
+
+	context "when there are no search parameters" do
+		it "should show all the questions" do
+			Question.search('').should eq(Question.scoped.collect)
+		end
+  end
 end
