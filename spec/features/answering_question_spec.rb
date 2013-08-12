@@ -13,7 +13,7 @@ describe "answering a question" do
 		end
 	
 		it "can create a new answer to a question" do
-			visit question__path(@question)
+			visit question_path(@question)
 			click_on "Be the first to answer this question!"
 			fill_in "answer_body", with: "The first answer"
 			click_on "Create Answer"
