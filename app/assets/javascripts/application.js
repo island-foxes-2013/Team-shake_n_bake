@@ -43,7 +43,8 @@ $(document).ready(function() {
   
   $('#answer_modal').on('ajax:success', function(e, data){
   	$('#answerModal').modal('toggle');
-  	location.reload();	
+    $('.answers').append(data.html);
+  	//location.reload();	
   });
 
 
