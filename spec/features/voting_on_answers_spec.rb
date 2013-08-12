@@ -22,5 +22,17 @@ describe 'voting on an answer' do
         page.should have_content("1")
       end
     end
+
+    it 'can downvote on an answer' do
+      within(".answer_box") do
+        click_on "dwn"
+      end
+
+      visit(current_path)  #reload
+
+      within(".answer_box .badge") do
+        page.should have_content("-1")
+      end
+    end
   end
 end
