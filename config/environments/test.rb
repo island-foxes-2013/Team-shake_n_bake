@@ -34,4 +34,8 @@ ShakeNBake::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Access to rack session
+  config.middleware.use RackSessionAccess::Middleware
+  
 end
