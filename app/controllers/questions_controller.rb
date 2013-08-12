@@ -29,10 +29,9 @@ class QuestionsController < ApplicationController
     @user = User.new # if User wants to Sign-Up from questions#show
   	@question = Question.find(params[:id])
     @question.increment!('view')
-    @question.answers.each do |answer|
+    answers = @question.answers.each do |answer|
       answer.votes.build
     end
-    # @user = User.find(session[:id])
-    # @user
+    @answers = answers.sort! { |a,b| a.votes.count <=> b.votes.count }.reverse
   end
 end

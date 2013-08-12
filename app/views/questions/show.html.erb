@@ -17,7 +17,7 @@
     <% if @question.user.image.present? %>
       <p><span>Question submitted by: <span style='color: #3366FF;'><b><%= @question.user.username %></b> </span></span><img src='<%= @question.user.image.thumb.to_s %>'></p>
     <% else %>
-      <p><span>Question submitted by: <span style='color: #3366FF;'><b><%= @question.user.username %></b> </span></span><%= image_tag(@question.user.gravatar_url, width: "40", height: "40") %></p>
+      <p><span>Question submitted by: <span style='color: #3366FF;'><br><b><%= @question.user.username %></b> </span></span></p><%= image_tag(@question.user.gravatar_url, width: "40", height: "40") %>
     <% end %>
 
     <div class='view_info_box'><span><%= @question.view %></span><div>Views</div></div>
@@ -47,16 +47,17 @@
       <%= text_area_tag 'comment', nil, class: "form-control"%>
     <% end %>
   <% end %><br>
-  <%= link_to 'Answer this Question', '#answerModal', data: {toggle: 'modal'}, id: 'answer_btn', class: "btn btn-success" %>
+  <%= link_to 'Submit an Answer', '#answerModal', data: {toggle: 'modal'}, id: 'answer_btn', class: "btn btn-success" %>
   <%= render "shared/answer_modal" %>
 </div>
 
-
-<% if @question.answers.empty? %>
+<% if @answers.empty? %>
   <script>$('#answer_btn').text('Be the first to answer this question!')</script>
+  <script>console.log('there are no answers')</script>
 <% else %>
+  <script>console.log('here I am')</script>
   <script>$('#answer_btn').text('Submit an Answer')</script>
-  <% @question.answers.each do |answer| %>
+  <% @answers.each do |answer| %>
     <div class='answer_box'>
       <div class="grav_vote_box">
         <div class='count'>
@@ -67,9 +68,9 @@
           <%= button_to "dwn", answer_votes_path(answer, { vote: 'dwn'}), class: "btn btn-danger btn-xs", remote: true %>
         </div>
         <% if answer.user.image.present? %>
-          <p><span>Answer submitted by: <span style='color: #3366FF;'><b><%= answer.user.username %></b> </span></span><img src='<%= answer.user.image.thumb.to_s %>'></p>
+          <p><span>Answer submitted by: <span style='color: #3366FF;'><br><b><%= answer.user.username %></b> </span></span></p><img src='<%= answer.user.image.thumb.to_s %>'>
         <% else %>
-          <p><span>Answer submitted by: <span style='color: #3366FF;'><b><%= answer.user.username %></b> </span></span><%= image_tag(answer.user.gravatar_url, width: "40", height: "40") %></p>
+          <p><span>Answer submitted by: <span style='color: #3366FF;'><br><b><%= answer.user.username %></b> </span></span></p><%= image_tag(answer.user.gravatar_url, width: "40", height: "40") %>
         <% end %>
       </div>
       <p id='answer_body'><%= answer.body %></p>
