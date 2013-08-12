@@ -1,8 +1,9 @@
 
 <div id='question_box'>
 
-  <h1><%= @question.title %></h1>
+  <h1><%= @question.title %>...</h1>
   <hr />
+  <span class='question_date'>Question created on <%= @question.created_at.strftime('%B, %d, %Y') %></span>
 
   <div class="grav_vote_box">
     <div class='count'>
@@ -30,7 +31,7 @@
     </div>
 
 
-  <h4 style='clear: both;'>Comments:</h4>
+  <h4 style='clear: both;margin-top: 45px;'>Comments:</h4>
   <hr />
   <div class='comment_begin'></div>
   <% if !@question.comments.empty? %>
@@ -59,6 +60,7 @@
   <script>$('#answer_btn').text('Submit an Answer')</script>
   <% @answers.each do |answer| %>
     <div class='answer_box'>
+      <span class='answer_date'>Answer created on <%= answer.created_at.strftime('%B, %d, %Y') %></span>
       <div class="grav_vote_box">
         <div class='count'>
           <span class="badge"><%= answer.votes.where(vote: 'up').count %></span>
