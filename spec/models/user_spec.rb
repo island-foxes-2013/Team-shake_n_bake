@@ -30,5 +30,11 @@ let(:user) { FactoryGirl.create(:user) }
 	  	user.email = nil
 	  	expect { user.save! }.to raise_error
 	  end
+
+	  it "should raise error when email "
 	end
 end
+
+validates :username, :email, presence: true
+
+  validates :username, :email, uniqueness: true
