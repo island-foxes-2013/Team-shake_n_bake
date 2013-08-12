@@ -55,7 +55,7 @@ let(:vote) { FactoryGirl.create(:vote) }
 	  	expect { test_user.save! }.to raise_error
 	  end
 	end
-
+	
 	  context "validate associations" do
 
 		it "should have a question when assiciated with a question on create" do
@@ -75,3 +75,4 @@ let(:vote) { FactoryGirl.create(:vote) }
 
 	end
 end
+
