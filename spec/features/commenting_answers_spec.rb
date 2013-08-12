@@ -22,10 +22,12 @@ describe 'Commenting on Answers' do
     user.save
   end
 
-  context "on question page" do
-    it "should have a comment link" do
+  context "on question page", js: true do
+    it "user can add a comment" do
       visit question_path(question)
-      expect(page).to have_link('Comment', href: answer_path(answer))
+      fill_in "comment", with: "I love this question"
+      click_button "Add Comment"
+      page.should have_content("I love this question")
     end
   end
 

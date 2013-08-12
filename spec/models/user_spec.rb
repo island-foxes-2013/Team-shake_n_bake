@@ -35,6 +35,6 @@ let(:user) { FactoryGirl.create(:user) }
 	end
 end
 
-validates :username, :email, presence: true
+# validates :username, :email, presence: true
 
-  validates :username, :email, uniqueness: true
+#   validates :username, :email, uniqueness: true
