@@ -9,16 +9,4 @@ FactoryGirl.define do
   factory :invalid_user, parent: :user do |f|
     f.username nil
   end
-
-  factory :question do |f|
-  	f.user
-  	f.title "a question title here"
-  	f.body "lot's of stuff goes here"
-  end
-
-  factory :answer do |f|
-    f.body "White wine goes best with chicken."
-    f.user
-    f.question
-  end
 end

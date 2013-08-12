@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
 
   def create
-    user = User.find(session[:id])
+    user = current_user
     vote_request = params[:vote]
 
     if params.has_key?('question_id')
