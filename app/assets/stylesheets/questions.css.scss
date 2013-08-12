@@ -44,7 +44,7 @@
 	background-color: rgba(38,38,38,0.4);
 	height: 1px;
 	margin-top: 6px;
-	margin-bottom: 0px;
+	margin-bottom: 8px;
 }
 
 .answer_box {
@@ -61,17 +61,16 @@
 	color: rgb(38,38,38);
 	background-color: rgba(38,38,38,0.4);
 	height: 1px;
-	margin-top: 6px;
+	margin-top: 20px;
 	margin-bottom: 8px;
 }
 
-
-#comment_append hr {
+.comment_append_hr {
 	color: rgb(38,38,38);
 	background-color: rgba(38,38,38,0.4);
 	height: 1px;
-	margin-top: 6px;
-	margin-bottom: 8px;
+	margin-top: 6px !important;
+	margin-bottom: 8px !important;
 }
 
 #comment_append {

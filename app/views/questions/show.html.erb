@@ -38,7 +38,7 @@
     <% @question.comments.each do |comment| %>
       <p class='comment_append'><%= comment.content %>
       <br><span class='comment_date'>comment by: <b><%= comment.user.username %></b> on <%= comment.created_at.strftime('%B, %d, %Y') %>, </span></p>
-      <hr />
+      <hr class='comment_append_hr' />
     <% end %>
   <% end %>
 
@@ -83,7 +83,7 @@
         <% answer.comments.each do |comment| %>
           <p class='comment_append'><%= comment.content %>
           <br><span class='comment_date'>comment by: <b><%= comment.user.username %></b> on <%= comment.created_at.strftime('%B, %d, %Y') %>, </span></p>
-          <hr />
+          <hr class='comment_append_hr' />
         <% end %>
       <% end %>
       <% if session[:id] %>
