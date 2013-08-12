@@ -29,7 +29,7 @@
 	
     <%= form_tag questions_path, class: 'navbar-form pull-right', :method => 'get' do %>
       <%= submit_tag "Search", :name => nil, class: 'btn btn-xs' %>
-      <%= text_field_tag :search, params[:search], class: "form-control" %>
+      <%= text_field_tag :search, params[:search], class: "form-control", required: true %>
     <% end %>
 		</div>
 	</div>

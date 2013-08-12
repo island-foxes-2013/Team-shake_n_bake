@@ -10,11 +10,8 @@ class Question < ActiveRecord::Base
 
 
   def self.search(search)
-    if search
-      where('title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%")
-    else
-      scoped
-    end
+    return scoped unless !search.blank? # same as 'all', except can call order on it (see QuestionsController)
+    where('title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%")
   end
 
 end
