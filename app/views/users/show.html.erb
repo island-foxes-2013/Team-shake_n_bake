@@ -30,7 +30,7 @@
     <h3>My Questions:</h3>
     <ul>
     <% @user.questions.each do |question| %>
-    <li><a href="/users/questions/<%= question.id %>"><%= question.title %></a></li>
+    <li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
     <% end %>
   </ul>
   </div>
