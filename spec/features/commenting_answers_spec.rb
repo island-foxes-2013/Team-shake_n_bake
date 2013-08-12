@@ -1,14 +1,5 @@
 require 'spec_helper'
 
-def login(user)
-  visit sessions_path
-  fill_in 'username', with: user.username
-  fill_in 'password', with: user.password
-  click_on 'Sign In'
-end
-
-
-
 describe 'Commenting on Answers' do
   let!(:user){ FactoryGirl.create(:user) }
   let!(:question) { user.questions.create(title: "title", body: "content") }
@@ -16,7 +7,7 @@ describe 'Commenting on Answers' do
   let!(:comment) { answer.comments.create(content: "this answer sucks")}
 
   before do
-    login(user)
+    login_as(user)
     user.answers << answer
     user.comments << comment
     user.save
