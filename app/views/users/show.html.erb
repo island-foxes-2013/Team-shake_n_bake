@@ -1,4 +1,4 @@
-<h1>Heeeyyyy, <%= @user.username %></h1>
+<h1>Welcome Home - <%= @user.username %></h1>
 <div class="profile">
   <div class="image">
     <% if @user.image.present? %>
@@ -8,10 +8,10 @@
     <% end %>
     <br />
     <br />
-    <button>Change Your Photo</button><br />
+    <button class="btn btn-info">Change Your Photo</button><br><br>
     <form id="color-form">
-      <input type="text" id="color" name="color" placeholder="Type Color Here" /><br />
-      <input type="submit" value="Change Background Color" />
+      <input type="text" id="color" name="color" placeholder="Type Color Here" class="form-control" />
+      <input id='color_form_btn' type="submit" value="Change Background Color" class='btn btn-warning' /><br><br>
     </form>
 
     <%= form_for @user, :html => {:multipart => true} do |f| %>
@@ -22,7 +22,7 @@
         <%= f.check_box :remove_image %>
         Remove image
       </label>
-      <%= f.submit "Update Image", class: "btn btn-primary btn-sm" %>
+      <%= f.submit "Update Image", class: "btn btn-primary btn-sm", id: 'update_image' %>
     </p>
     <% end %>
   </div>

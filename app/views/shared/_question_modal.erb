@@ -10,7 +10,7 @@
             <%= label(:question, :title) %><br>
             <%= text_field(:question, :title, class: "form-control") %><br><br>
             <%= label(:question, :body) %><br>
-            <%= text_area(:question, :body, row: 20, cols: 75, class: "form-control") %><br><br>
+            <%= text_area(:question, :body,  class: "form-control") %><br><br>
             <%= label(:question, :image) %>
             <%= file_field(:question, :image) %>
             <br><%= submit_tag("Create Question!", class: "btn btn-primary btn-sm") %>
