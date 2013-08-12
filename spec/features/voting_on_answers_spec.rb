@@ -13,10 +13,8 @@ describe 'voting on an answer' do
 
     it 'can upvote on an answer' do
       within(".answer_box") do
-        click_on "up"
+        click_button "up"
       end
-
-      visit(current_path)  #reload
 
       within(".answer_box .badge") do
         page.should have_content("1")
@@ -25,10 +23,8 @@ describe 'voting on an answer' do
 
     it 'can downvote on an answer' do
       within(".answer_box") do
-        click_on "dwn"
+        click_button "dwn"
       end
-
-      visit(current_path)  #reload
 
       within(".answer_box .badge") do
         page.should have_content("-1")

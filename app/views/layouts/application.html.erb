@@ -17,7 +17,7 @@
 
 				<% if session[:id] %>
 				<li><%= link_to 'My Profile', user_path(current_user) %></li>
-				<li><%= link_to 'Logout', session_path(session[:id]), method: :delete %></li>
+				<li><%= link_to 'Logout', session_path, method: :delete %></li>
 				<li><%= link_to 'Ask a Question', '#myModal', data: {toggle: 'modal'} %></li>
 				<li id='user'>Logged in as: <span><%= User.find(session[:id]).username %></span></li>
 				<%= render "shared/question_modal" %>

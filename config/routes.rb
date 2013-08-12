@@ -16,7 +16,7 @@ ShakeNBake::Application.routes.draw do
     resources :votes, only: [:new, :create]
   end
 
-  resources :sessions, only: [:index, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
   root :to => "questions#index"
 
 

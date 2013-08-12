@@ -16,7 +16,7 @@ feature 'User goes through the navbar' do
 	scenario "clicks 'My Profile'" do
 		# save_and_open_page
 		# login_as(user)
-		# visit sessions_path
+		# visit session_path
 		# fill_in "un-primary", with: 'Tyrone Biggums'
 		# fill_in "pw-primary", with: 'tb'
 

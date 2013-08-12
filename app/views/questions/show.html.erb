@@ -64,8 +64,8 @@
           <span class="badge"><%= (answer.votes.where(vote: 'up').count) - (answer.votes.where(vote: 'dwn').count) %></span>
         </div>
         <div class='vote_btn'>
-          <%= button_to "up", answer_votes_path(answer, { vote: 'up'}), class: "btn btn-success btn-xs", remote: true %>
-          <%= button_to "dwn", answer_votes_path(answer, { vote: 'dwn'}), class: "btn btn-danger btn-xs", remote: true %>
+          <%= button_to "up", answer_votes_path(answer, { vote: 'up'}), class: "btn btn-success btn-xs up-vote", remote: true %>
+          <%= button_to "dwn", answer_votes_path(answer, { vote: 'dwn'}), class: "btn btn-danger btn-xs down-vote", remote: true %>
         </div>
         <% if answer.user.image.present? %>
           <p><span>Answer submitted by: <span style='color: #3366FF;'><br><b><%= answer.user.username %></b> </span></span></p><img src='<%= answer.user.image.thumb.to_s %>'>

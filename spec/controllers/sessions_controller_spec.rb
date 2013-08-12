@@ -3,7 +3,15 @@ require 'spec_helper'
 describe SessionsController do
 
   describe "DELETE #destroy" do
-    it "destroys a users session cookie"
+    let(:user) { create(:user) }
+    before do
+      login_as(user)
+    end
+
+    it "destroys a users session cookie" do
+      delete :destroy
+      expect(session[:id]).to be_blank
+    end
     it "renders the homepage"
   end
 
