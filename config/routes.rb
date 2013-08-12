@@ -1,20 +1,23 @@
 ShakeNBake::Application.routes.draw do
-  resources :users
-  namespace :users do
-    resources :questions, only: [:show, :update]
+  resources :users, except: [:index, :destroy]
+  
+  # namespace :users do
+  #   resources :questions, only: [:show]
+  # end
+  
+  resources :questions, only: [:show, :new, :create] do
+    resources :comments, only: [:create]
+    resources :answers, only: [:create]
+    resources :votes, only: [:create]
   end
-  resources :questions do
-    resources :comments, only: [:new, :create]
-    resources :answers, only: [:new, :create]
-    resources :votes, only: [:new, :create]
+  resources :answers, only: [:show] do
+    resources :comments, only: [:create]
+    resources :votes, only: [:create]
   end
-  resources :answers, except: [:new, :create]
-  resources :votes, except: [:new, :create]
+  #resources :votes, except: [:new, :create]
 
-  resources :answers do
-    resources :comments, only: [:new, :create]
-    resources :votes, only: [:new, :create]
-  end
+  #resources :answers do
+
 
   resource :session, only: [:new, :create, :destroy]
   root :to => "questions#index"
