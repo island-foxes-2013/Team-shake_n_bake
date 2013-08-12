@@ -28,13 +28,48 @@ img {
 .image {
   float: left;
   width: 40%;
+  display: inline-block;
 }
 
 .questions {
-  float: right;
-  width: 60%;
+  display: inline-block;
   text-align: left;
   position: relative;
   border: solid 2px;
   border-radius: 20px;
+  left: 8px;
+}
+
+.questions h3 {
+  margin-left: 22px;
+}
+
+.questions ul {
+  width: 300px !important;
+  word-wrap: break-word !important;
+  padding-right: 29px !important;
+}
+
+.image button {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  width: 205px !important;
+}
+
+#color_form_btn {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+#color {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  height: 20px !important;
+  text-align: center;
+}
+
+#update_image {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  width: 205px !important;
 }

@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.question_date {
+	font-size: 10px;
+}
+
+.answer_date {
+	font-size: 10px;
+}
+
 .comment-user {
   font-style: italic;
 }
@@ -28,6 +36,7 @@
 	font-size: 30px;
 	margin: 0px;
 	text-align: left;
+	word-wrap:break-word;
 }
 
 #question_box hr {
@@ -52,17 +61,16 @@
 	color: rgb(38,38,38);
 	background-color: rgba(38,38,38,0.4);
 	height: 1px;
-	margin-top: 6px;
+	margin-top: 20px;
 	margin-bottom: 8px;
 }
 
-
-#comment_append hr {
+.comment_append_hr {
 	color: rgb(38,38,38);
 	background-color: rgba(38,38,38,0.4);
 	height: 1px;
-	margin-top: 6px;
-	margin-bottom: 8px;
+	margin-top: 6px !important;
+	margin-bottom: 8px !important;
 }
 
 #comment_append {
@@ -80,7 +88,7 @@
 	background-color: rgba(248,248,248, 1);
 	padding: 10px 2px 10px 10px;
 	margin-bottom: 25px;
-	margin-top: 15px;
+	margin-top: 5px;
 }
 
 .grav_vote_box p {
@@ -189,4 +197,6 @@ display: inline-block;
 	padding-right: 20px;
 	padding-bottom: 30px;
 }
+
+
 
