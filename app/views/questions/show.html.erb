@@ -7,7 +7,7 @@
 
   <div class="grav_vote_box">
     <div class='count'>
-      <span class="badge"><%= @question.votes.where(vote: 'up').count %></span>
+      <span class="badge"><%= (@question.votes.where(vote: 'up').count) - (@question.votes.where(vote: 'dwn').count) %></span>
     </div>
 
     <div class='vote_btn'>
@@ -16,7 +16,7 @@
     </div>
 
     <% if @question.user.image.present? %>
-      <p><span>Question submitted by: <span style='color: #3366FF;'><b><%= @question.user.username %></b> </span></span><img src='<%= @question.user.image.thumb.to_s %>'></p>
+      <p><span>Question submitted by: <span style='color: #3366FF;'><br><b><%= @question.user.username %></b> </span></span></p><img src='<%= @question.user.image.thumb.to_s %>'>
     <% else %>
       <p><span>Question submitted by: <span style='color: #3366FF;'><br><b><%= @question.user.username %></b> </span></span></p><%= image_tag(@question.user.gravatar_url, width: "40", height: "40") %>
     <% end %>
@@ -63,7 +63,7 @@
       <span class='answer_date'>Answer created on <%= answer.created_at.strftime('%B, %d, %Y') %></span>
       <div class="grav_vote_box">
         <div class='count'>
-          <span class="badge"><%= answer.votes.where(vote: 'up').count %></span>
+          <span class="badge"><%= (answer.votes.where(vote: 'up').count) - (answer.votes.where(vote: 'dwn').count) %></span>
         </div>
         <div class='vote_btn'>
           <%= button_to "up", answer_votes_path(answer, { vote: 'up'}), class: "btn btn-success btn-xs", remote: true %>
