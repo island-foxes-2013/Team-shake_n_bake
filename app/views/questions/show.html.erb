@@ -24,11 +24,14 @@
     <div class='view_info_box'><span><%= @question.answers.count %></span><div>Answers</div></div>
   </div>
 
-  <p id='question_body'><%= @question.body %></p>
-  <img src='<%= @question.image_url.to_s %>'>
-    <h4>Comments:</h4>
-  <hr />
+    <div class='image_body'>
+      <img src='<%= @question.image_url.to_s %>', style='float:left'>
+      <p id='question_body'><%= @question.body %></p>
+    </div>
 
+
+  <h4 style='clear: both;'>Comments:</h4>
+  <hr />
   <div class='comment_begin'></div>
   <% if !@question.comments.empty? %>
     <% @question.comments.each do |comment| %>

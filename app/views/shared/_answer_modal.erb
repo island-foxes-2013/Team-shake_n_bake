@@ -10,8 +10,6 @@
             <%= hidden_field(:answer, :question_id, value: @question.id) %>
             <%= label(:answer, :body) %><br>
             <%= text_area(:answer, :body, row: 20, cols: 75, class: "form-control") %><br><br>
-            <%= label(:answer, :image) %>
-            <%= file_field(:answer, :image) %>
             <br><%= submit_tag("Create Answer!", class: "btn btn-primary btn-sm") %>
           <% end %>
         </div>

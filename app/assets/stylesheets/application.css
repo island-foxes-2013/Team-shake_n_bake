@@ -19,15 +19,24 @@ html {
   min-width: 900px;
 }
 
+.navbar-form {
+  margin-top: 11px !important;
+}
+
+#search {
+  width: 142px !important;
+  height: 25px !important;
+  padding: 0px !important;
+}
+
 #user {
   color: white;
   text-align: center;
-  margin-top: 11px;
-  margin-left: 33px;
+  margin-top: 15px;
+  margin-left: 5px;
 }
 
 #user_ul {
-  float: right;
   margin-top: 5px;
   margin-bottom: 5px;
   margin-right: 18px;

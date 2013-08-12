@@ -25,8 +25,11 @@ $(document).ready(function() {
 		$('.comment_form textarea').val('');
 	});
 
+	$('.comment_form').on('ajax:success', function(e, data){
+		
+	});
+
 	$('.button_to').on('ajax:success', function(e, data){
-		console.log(data.count)
 		if ($('#vote_message').length == 0) {
 		  $(this).parent().parent().find('.count span').text(data.count);
 		  $(this).parent().parent().find('.count').append('<span id="vote_message" style=color:rgba(144,0,0,0.7);font-size:15px;margin-left:5px;margin-top:8px;position:absolute;> - ' + data.vote + '</span>');
