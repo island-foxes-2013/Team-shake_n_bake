@@ -30,31 +30,6 @@ describe 'Commenting on Answers' do
       page.should have_content("I love this question")
     end
   end
-
-  context "comment page" do
-    before :each do
-      visit answer_path(answer)
-    end
-
-    it "should load the page" do
-      expect(page).to have_content "Answer:"
-    end
-
-    it "should load the answer" do
-      expect(page).to have_content answer.body
-    end
-
-    it "should load comments for the answer" do
-      expect(page).to have_content comment.content
-    end
-
-    it "should create a new comment" do
-      expect {
-        fill_in 'comment[content]', with: "This is test content to a question I don't understand"
-        click_button ("Create Comment")
-      }.to change(Comment, :count).by(1)
-    end
-  end
 end
 
 
