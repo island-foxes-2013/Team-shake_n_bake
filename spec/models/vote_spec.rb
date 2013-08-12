@@ -18,21 +18,14 @@ let(:answer_vote) { FactoryGirl.create(:answer_vote) }
     context "voting up or down" do
       
       it "should not be able to vote up if previous up vote" do
-        user.save!
         test_vote = question.votes.create(user_id: user.id)
         test_vote.save!
       end
       
-      # let(:vote_dup) { Vote.new(user_id: vote.user_id, answer_id: vote.answer_id)}
-  
       it "should fail if a user votes on an answer they have previously voted on" do
-
-        user.save!
-        answer.save!
-        Vote.create_vote('Answer', user, 'up')
-        expect(@q_a).to eq 'Answer'
-        # vote = Vote.create_vote('Answer', user, 'up' )
-        # expect(@q_a).to eq 'Answer'
+        Vote.create_vote(answer, user, 'up')
+        second_vote = Vote.create_vote(answer, user, 'up')
+        expect(second_vote).to eq("You already voted up")
       end
      
     end
