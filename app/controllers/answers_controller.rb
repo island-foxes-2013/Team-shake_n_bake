@@ -11,8 +11,13 @@ class AnswersController < ApplicationController
     user = User.find(session[:id])
     answer = user.answers.new(params[:answer])
 
+    p "*" * 100
+
     if answer.save
-       render json: { answer: answer }
+      render json: {
+        html: render_to_string(partial: 'shared/answer', locals: {answer: answer})
+      }
+       #render json: { answer: answer }
     else
       render json: { error: answer.errors }
     end
