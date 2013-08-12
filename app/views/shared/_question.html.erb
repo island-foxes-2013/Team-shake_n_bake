@@ -2,6 +2,7 @@
 	<div id='vote-box'><span class='number-show'><%= question.votes.count %></span><br>vote</div>
 	<div id='answer-box'><span class='number-show'><%= question.answers.count %></span><br>answers</div>
 	<div id='view-box'><span class='number-show'><%= question.view %></span><br>views</div>
+	
 	<div id='title-box'><%= link_to question.title, question_path(question) %></div>
 	<div id='created-by'>created <%= ((Time.now - question.created_at)/60).floor %> minutes ago by <%= User.find(question.user_id).username %></div>
 	<hr>

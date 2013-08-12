@@ -100,18 +100,18 @@ html {
   font-size: 1.5em;
   margin-left: 50px;
   margin-top: 0px;
-  width: 600px;
+  width: 300px;
   height: 1.5em;
   overflow:hidden;
 }
 
 #created-by {
   margin-left: 40px;
+  margin-top: 28px;
   display: inline-block;
   font-size: 80%;
-  position: relative;
   height: 40px;
-  vertical-align: middle;
+  float: right;
 }
 
 /*DIGG'S PAGINATION STYLING*/
