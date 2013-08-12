@@ -54,9 +54,7 @@
 
 <% if @answers.empty? %>
   <script>$('#answer_btn').text('Be the first to answer this question!')</script>
-  <script>console.log('there are no answers')</script>
 <% else %>
-  <script>console.log('here I am')</script>
   <script>$('#answer_btn').text('Submit an Answer')</script>
   <% @answers.each do |answer| %>
     <div class='answer_box'>
