@@ -10,8 +10,10 @@ class Question < ActiveRecord::Base
 
 
   def self.search(search)
+    p "$"
+    p search
     if search
-      where('title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%")
+      p where('title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%")
     else
       scoped
     end

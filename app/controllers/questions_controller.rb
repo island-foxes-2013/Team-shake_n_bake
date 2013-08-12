@@ -3,6 +3,8 @@ class QuestionsController < ApplicationController
     @user = User.new
     @pag_questions = Question.paginate(page: params[:page]).order('id DESC')
   	@questions = Question.search(params[:search]).paginate(page: params[:page]).order('id DESC')
+    p "$" * 60
+    p @questions
   end
 
   def new
