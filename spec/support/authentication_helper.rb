@@ -1,8 +1,8 @@
 module AuthenticationHelper
 	def login_as(user)
 		visit sessions_path
-		fill_in "Username", with: user.username
-		fill_in "Password", with: "robot"
+		fill_in "username", with: user.username
+		fill_in "password", with: "robot"
 		click_button "Sign In"	
 	end
 
