@@ -1,12 +1,14 @@
+require 'spec_helper'
 require 'carrierwave/test/matchers'
 
 describe Uploader do
   include CarrierWave::Test::Matchers
 
   before do
+    @user = create(:user)
     Uploader.enable_processing = true
     @uploader = Uploader.new(@user, :image)
-    @uploader.store!(File.open(path_to_file))
+    @uploader.store!(File.open('spec/fixtures/images/green_tea_cake.jpg'))
   end
 
   after do
@@ -21,12 +23,8 @@ describe Uploader do
   end
 
   context 'the profile version' do
-    it "should fit within 200 by 200 pixels" do
-      @uploader.should be_no_larger_than(200, 200)
+    it "should fit within 300 by 300 pixels" do
+      @uploader.should be_no_larger_than(300, 300)
     end
-  end
-
-  it "should make the image readable only to the owner and not executable" do
-    @uploader.should have_permissions(0600)
   end
 end
