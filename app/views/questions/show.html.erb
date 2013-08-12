@@ -24,11 +24,14 @@
     <div class='view_info_box'><span><%= @question.answers.count %></span><div>Answers</div></div>
   </div>
 
-  <p id='question_body'><%= @question.body %></p>
-  <img src='<%= @question.image_url.to_s %>'>
-    <h4>Comments:</h4>
-  <hr />
+    <div class='image_body'>
+      <img src='<%= @question.image_url.to_s %>', style='float:left'>
+      <p id='question_body'><%= @question.body %></p>
+    </div>
 
+
+  <h4 style='clear: both;'>Comments:</h4>
+  <hr />
   <div class='comment_begin'></div>
   <% if !@question.comments.empty? %>
     <% @question.comments.each do |comment| %>
@@ -39,7 +42,7 @@
   <% end %>
 
   <% if session[:id] %>
-    <%= form_tag question_comments_path(@question), id: 'comment_form', remote: true do %>
+    <%= form_tag question_comments_path(@question), class: 'comment_form', remote: true do %>
       <%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
       <%= text_area_tag 'comment', nil, class: "form-control"%>
     <% end %>
@@ -54,7 +57,7 @@
 <% else %>
   <script>$('#answer_btn').text('Submit an Answer')</script>
   <% @question.answers.each do |answer| %>
-    <div id='answer_box'>
+    <div class='answer_box'>
       <div class="grav_vote_box">
         <div class='count'>
           <span class="badge"><%= answer.votes.where(vote: 'up').count %></span>
@@ -81,7 +84,7 @@
         <% end %>
       <% end %>
       <% if session[:id] %>
-        <%= form_tag question_comments_path(answer), id: 'comment_form', remote: true do %>
+        <%= form_tag answer_comments_path(answer), class: 'comment_form', remote: true do %>
           <%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
           <%= text_area_tag 'comment', nil, class: "form-control"%>
         <% end %>
@@ -89,3 +92,10 @@
     </div>
   <% end %>
 <% end %>
+
+
+<div id="hidden">
+  <p class='comment_append'></p>
+</div>
+
+

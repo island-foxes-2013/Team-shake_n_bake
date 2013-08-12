@@ -27,6 +27,7 @@
 #question_box h1 {
 	font-size: 30px;
 	margin: 0px;
+	text-align: left;
 }
 
 #question_box hr {
@@ -37,7 +38,7 @@
 	margin-bottom: 8px;
 }
 
-#answer_box {
+.answer_box {
 	width: 600px;
 	border-radius: 10px;
 	border: solid thin;
@@ -47,7 +48,7 @@
 	padding: 10px 20px 10px 30px;
 }
 
-#answer_box hr {
+.answer_box hr {
 	color: rgb(38,38,38);
 	background-color: rgba(38,38,38,0.4);
 	height: 1px;
@@ -86,8 +87,8 @@
   margin: 0 !important;
   display: inline-block;
   vertical-align: top;
-  margin-top: 2px;
-  margin-left: 10px;
+  margin-top: 2px !important;
+  margin-left: 10px !important;
 }
 
 
@@ -150,11 +151,11 @@
 	height: 40px;
 }
 
-#comment_form input {
+.comment_form input {
 display: inline-block;
 }
 
-#comment_form textarea {
+.comment_form textarea {
 	display: inline-block;
 }
 
@@ -170,7 +171,7 @@ display: inline-block;
 	color: #009900;
 }
 
-#comment_form {
+.comment_form {
 	margin-top: 30px !important;
 }
 
@@ -178,4 +179,8 @@ display: inline-block;
 	width: 539px !important;
 }
 
+.image_body img {
+	padding-right: 20px;
+	padding-bottom: 30px;
+}
 

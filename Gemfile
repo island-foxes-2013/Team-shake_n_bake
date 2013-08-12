@@ -42,6 +42,7 @@ group :test, :development do
   gem 'database_cleaner'
 
   gem 'simplecov', :require => false, :group => :test
+  gem 'rack_session_access'
 
 end
 

@@ -18,17 +18,21 @@ $(document).ready(function() {
 
 
   //Jake-y Poo
-	$('#comment_form').on('ajax:success', function(e, data){
-		var comment = $('#comment_append').clone();
-		$('#question_box p').last().append('<hr />');
-		$(comment).text(data.comment.content).append('<br><span id="comment_date">comment by: ' + '<b>' + data.user.username + '</b>' + ' on ' + formatDate() + '</span>').insertAfter($('#question_box p').last());
-		$('#comment_form textarea').val('');
+	$('.comment_form').on('ajax:success', function(e, data){
+		var comment = $('.comment_append').last().clone();		
+		$(comment).text(data.comment.content).append('<br><span class="comment_date">comment by: <b>' + data.user.username + '</b> on ' + formatDate() + '</span>').insertAfter($(this).parent().find('hr').last());
+		$(this).parent().find('.comment_append').last().append('<hr />');
+		$('.comment_form textarea').val('');
+	});
+
+	$('.comment_form').on('ajax:success', function(e, data){
+		
 	});
 
 	$('.button_to').on('ajax:success', function(e, data){
 		if ($('#vote_message').length == 0) {
-		  $('#count span').text(data.count);
-		  $('#question_box h1').append('<span id="vote_message" style=color:rgba(144,0,0,0.7);font-size:15px;margin-left:5px;> - ' + data.vote + '</span>');
+		  $(this).parent().parent().find('.count span').text(data.count);
+		  $(this).parent().parent().find('.count').append('<span id="vote_message" style=color:rgba(144,0,0,0.7);font-size:15px;margin-left:5px;margin-top:8px;position:absolute;> - ' + data.vote + '</span>');
 		  setTimeout(function() {
         $('#vote_message').fadeOut(1000, function(){
           $('#vote_message').remove();
@@ -36,6 +40,12 @@ $(document).ready(function() {
       }, 600);
     };
 	});
+  
+  $('#answer_modal').on('ajax:success', function(e, data){
+  	$('#answerModal').modal('toggle');
+  	location.reload();	
+  });
+
 
 
 	// GREG START
@@ -76,9 +86,4 @@ function formatDate() {
   return months[date.getMonth()] + ', ' + date.getDate() + ' - ' + date.getFullYear();
 };
 
-
-// $(function(){
-//   var html = "<%= escape_javascript(render(:partial => 'pretty_box')) %>";
-//   $("#container").prepend(html);
-// });
 

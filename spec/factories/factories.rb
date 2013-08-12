@@ -6,6 +6,10 @@ FactoryGirl.define do
     f.password_confirmation { |u| u.password }
   end
 
+  factory :invalid_user, parent: :user do |f|
+    f.username nil
+  end
+
   factory :question do |f|
   	f.user
   	f.title "a question title here"

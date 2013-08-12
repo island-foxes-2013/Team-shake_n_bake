@@ -8,11 +8,14 @@ class AnswersController < ApplicationController
   end
 
   def create
-  	answer = Answer.new(params[:answer])
-  	answer.user_id = current_user.id
-  	answer.question_id = params[:question_id]
-  	answer.save
-  	redirect_to question_path(answer.question_id)
+    user = User.find(session[:id])
+    answer = user.answers.new(params[:answer])
+
+    if answer.save
+       render json: { answer: answer }
+    else
+      render json: { error: answer.errors }
+    end
   end
 
   def destroy
@@ -23,5 +26,4 @@ class AnswersController < ApplicationController
     @comments = @answer.comments
     @comment = Comment.new
   end
-
 end
