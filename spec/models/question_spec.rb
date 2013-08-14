@@ -4,11 +4,21 @@ describe Question do
 	it {should belong_to(:user)}
 	it {should have_many(:answers)}
 	it {should have_many(:comments)}
+	it {should have_many(:votes)}
 
 	let(:question) {Question.create(title:"demo title", body:"this is a demo body")}
 	let(:user) {create(:user)}
 	let(:answer) {create(:answer)}
 	let(:comment) {Comment.new(content: "I am a test comment")}
+
+	context "create question" do
+	  it "can be instantiated" do
+	    expect(question).to be_an_instance_of(Question)
+	  end
+	  it "can be saved successfully" do
+	    expect { question.save }.to change(Question, :count).by(1)
+	  end
+  end
 
 	context "when title is empty" do
 		it "should not save" do
@@ -36,7 +46,7 @@ describe Question do
 
 	context "when there are no search parameters" do
 		it "should show all the questions" do
-			Question.search('').should eq(Question.scoped.collect)
+			Question.search('').should eq(Question.scoped.all)
 		end
   end
 end

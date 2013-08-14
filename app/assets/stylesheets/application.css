@@ -19,6 +19,11 @@ html {
   min-width: 900px;
 }
 
+body {
+  background-image: url('http://parkfriedchicken.shopsinbangalore.com/images/parkfriedchicken/parkfriedchicken2.jpg');
+  /*background-repeat: repeat-x;*/
+}
+
 .navbar-form {
   margin-top: 11px !important;
 }
