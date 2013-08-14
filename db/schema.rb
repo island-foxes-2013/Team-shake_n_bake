@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130811202820) do
+ActiveRecord::Schema.define(:version => 20130811204158) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -58,7 +58,5 @@ ActiveRecord::Schema.define(:version => 20130811202820) do
     t.datetime "updated_at",     :null => false
     t.string   "vote"
   end
-
-  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end

@@ -1,9 +1,0 @@
-<h1>Sign In!</h1>
-
-<%= form_tag('/sessions', method: 'post') do %>
-  <%= label_tag(:username, 'Username') %><br>
-  <%= text_field_tag(:username, nil, placeholder: 'Username', id: 'un-primary')%><br>
-  <%= label_tag(:password, 'Password') %><br>
-  <%= password_field_tag(:password, nil, placeholder: 'Password', id: 'pw-primary') %><br><br>
-  <%= submit_tag("Sign In", class: "btn btn-primary btn-sm", id: 'signin-primary') %>
-<% end %>

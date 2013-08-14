@@ -1,8 +1,0 @@
-<h1>Answer this question: <%= @question.title %> -</h1> 
-<h3><%= @question.body %></h3>
-<br />
-<%= form_for [@question, @answer] do |f| %>
-  <%= f.label :body %>
-  <%= f.text_field :body, :placeholder => "Type your answer here" %>
-  <%= f.submit "Submit Answer!", class: "btn btn-primary btn-sm" %>
-  <% end %>

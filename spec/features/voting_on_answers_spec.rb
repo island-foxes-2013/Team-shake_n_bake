@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe 'voting on an answer' do
   
-  context 'on a question page with answers' do
-    subject { page }
+  context 'on a question page with answers', js: true do
 
     before(:each) do
       @question = create(:question)
@@ -12,17 +11,24 @@ describe 'voting on an answer' do
       visit question_path(@question)
     end
 
-    it { should have_css('form#new_vote') }
-
-    it 'should see the answer content' do
-      should have_content(@question.answers.first.body)
-    end
-
     it 'can upvote on an answer' do
-      expect {
-        click_on 'Vote'
-      }.to change(Vote, :count).by(1)
+      within(".answer_box") do
+        click_button "up"
+      end
+
+      within(".answer_box .badge") do
+        page.should have_content("1")
+      end
     end
 
+    it 'can downvote on an answer' do
+      within(".answer_box") do
+        click_button "dwn"
+      end
+
+      within(".answer_box .badge") do
+        page.should have_content("-1")
+      end
+    end
   end
 end
