@@ -1,5 +1,5 @@
 <div class='sign-in'>
-<%= form_tag(sessions_path, method: 'post') do %>
+<%= form_tag(session_path, method: 'post') do %>
   <%= text_field_tag(:username, nil, placeholder: 'Username')%>
   <%= password_field_tag(:password, nil, placeholder: 'Password') %>
   <%= submit_tag("Sign In!", class: "btn btn-primary btn-sm", id: 'signin-button') %>

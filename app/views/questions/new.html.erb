@@ -2,9 +2,11 @@
 
 <%= form_for @question do |f| %>
 	<%= f.label :title %>
-	<%= f.text_field :title, placeholder: "Title" %>
+  <%# TODO-JW: more neatly format the errors for each field %>
+	<%= f.text_field :title, placeholder: "Title" %><%= @question.errors[:title].join(',') %>
 	<%= f.label :body %>
-	<%= f.text_area :body, placeholder: "Body" %>
+  <%# TODO-JW: more neatly format the errors for each field %>
+	<%= f.text_area :body, placeholder: "Body" %><%= @question.errors[:body].join(',') %>
   <%= f.file_field :image %>
 	<%= f.submit "Create Question!", class: "btn btn-primary btn-sm" %>
 <% end %>

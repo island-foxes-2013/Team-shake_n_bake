@@ -5,7 +5,7 @@ describe Question do
 	it {should have_many(:answers)}
 	it {should have_many(:comments)}
 
-	let(:question) {Question.create(title:"demo title", body:"this is a demo body")}
+	let!(:question) {Question.create(title:"demo title", body:"this is a demo body")}
 	let(:user) {create(:user)}
 	let(:answer) {create(:answer)}
 	let(:comment) {Comment.new(content: "I am a test comment")}
@@ -36,7 +36,7 @@ describe Question do
 
 	context "when there are no search parameters" do
 		it "should show all the questions" do
-			Question.search('').should eq(Question.scoped.collect)
+			Question.search('').to_a.should eq(Question.scoped.to_a)
 		end
   end
 end
