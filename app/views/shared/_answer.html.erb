@@ -1,0 +1,34 @@
+    <div class='answer_box'>
+      <span class='answer_date'>Answer created on <%= answer.created_at.strftime('%B, %d, %Y') %></span>
+      <div class="grav_vote_box">
+        <div class='count'>
+          <span class="badge"><%= (answer.votes.where(vote: 'up').count) - (answer.votes.where(vote: 'dwn').count) %></span>
+        </div>
+        <div class='vote_btn'>
+          <%= button_to "up", answer_votes_path(answer, { vote: 'up'}), class: "btn btn-success btn-xs up-vote", remote: true %>
+          <%= button_to "dwn", answer_votes_path(answer, { vote: 'dwn'}), class: "btn btn-danger btn-xs down-vote", remote: true %>
+        </div>
+        <% if answer.user.image.present? %>
+          <p><span>Answer submitted by: <span style='color: #3366FF;'><br><b><%= answer.user.username %></b> </span></span></p><img src='<%= answer.user.image.thumb.to_s %>'>
+        <% else %>
+          <p><span>Answer submitted by: <span style='color: #3366FF;'><br><b><%= answer.user.username %></b> </span></span></p><%= image_tag(answer.user.gravatar_url, width: "40", height: "40") %>
+        <% end %>
+      </div>
+      <p id='answer_body'><%= answer.body %></p>
+      <hr />
+
+      <div class='comment_begin'></div>
+      <% if !answer.comments.empty? %>
+        <% answer.comments.each do |comment| %>
+          <p class='comment_append'><%= comment.content %>
+          <br><span class='comment_date'>comment by: <b><%= comment.user.username %></b> on <%= comment.created_at.strftime('%B, %d, %Y') %>, </span></p>
+          <hr class='comment_append_hr' />
+        <% end %>
+      <% end %>
+      <% if session[:id] %>
+        <%= form_tag answer_comments_path(answer), class: 'comment_form', remote: true do %>
+          <%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
+          <%= text_area_tag 'comment', nil, class: "form-control"%>
+        <% end %>
+      <% end %>
+    </div>
