@@ -1,6 +1,8 @@
 
 <div id='question_box'>
-
+  <% if session[:id] %>
+  <script></script>
+  <% end %>
   <h1><%= @question.title %>...</h1>
   <hr />
   <span class='question_date'>Question created on <%= @question.created_at.strftime('%B, %d, %Y') %></span>
@@ -11,61 +13,79 @@
     </div>
 
     <div class='vote_btn'>
-      <%= button_to "up", question_votes_path(@question, { vote: 'up'}), class: "btn btn-success btn-xs", remote: true %>
+      <%= button_to "up", question_votes_path(@question, { vote: 'up'}), disabled: true, class: "btn btn-success btn-xs", remote: true %>
       <%= button_to "dwn", question_votes_path(@question, { vote: 'dwn'}), class: "btn btn-danger btn-xs", remote: true %>
     </div>
 
     <% if @question.user.image.present? %>
-      <p><span>Question submitted by: <span style='color: #3366FF;'><br><b><%= @question.user.username %></b> </span></span></p><img src='<%= @question.user.image.thumb.to_s %>'>
+    <p><span>Question submitted by: <span style='color: #3366FF;'><br><b><%= @question.user.username %></b> </span></span></p><img src='<%= @question.user.image.thumb.to_s %>'>
     <% else %>
-      <p><span>Question submitted by: <span style='color: #3366FF;'><br><b><%= @question.user.username %></b> </span></span></p><%= image_tag(@question.user.gravatar_url, width: "40", height: "40") %>
+    <p><span>Question submitted by: <span style='color: #3366FF;'><br><b><%= @question.user.username %></b> </span></span></p><%= image_tag(@question.user.gravatar_url, width: "40", height: "40") %>
     <% end %>
 
     <div class='view_info_box'><span><%= @question.view %></span><div>Views</div></div>
     <div class='view_info_box'><span><%= @question.answers.count %></span><div>Answers</div></div>
   </div>
 
-    <div class='image_body'>
-      <img src='<%= @question.image_url.to_s %>', style='float:left'>
-      <p id='question_body'><%= @question.body %></p>
-    </div>
+  <div class='image_body'>
+    <img src='<%= @question.image_url.to_s %>', style='float:left'>
+    <p id='question_body'><%= @question.body %></p>
+  </div>
 
 
   <h4 style='clear: both;margin-top: 45px;'>Comments:</h4>
   <hr />
   <div class='comment_begin'></div>
   <% if !@question.comments.empty? %>
-    <% @question.comments.each do |comment| %>
-      <p class='comment_append'><%= comment.content %>
-      <br><span class='comment_date'>comment by: <b><%= comment.user.username %></b> on <%= comment.created_at.strftime('%B, %d, %Y') %>, </span></p>
-      <hr class='comment_append_hr' />
+  <% @question.comments.each do |comment| %>
+  <p class='comment_append'><%= comment.content %>
+    <br><span class='comment_date'>comment by: <b><%= comment.user.username %></b> on <%= comment.created_at.strftime('%B, %d, %Y') %>, </span></p>
+    <hr class='comment_append_hr' />
     <% end %>
-  <% end %>
+    <% end %>
 
   <% if session[:id] %>
-    <%= form_tag question_comments_path(@question), class: 'comment_form', remote: true do %>
-      <%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
-      <%= text_area_tag 'comment', nil, class: "form-control"%>
-    <% end %>
-  <% end %><br>
-  <%= link_to 'Submit an Answer', '#answerModal', data: {toggle: 'modal'}, id: 'answer_btn', class: "btn btn-success" %>
-  <%= render "shared/answer_modal" %>
-</div>
-
-<% if @answers.empty? %>
-  <script>$('#answer_btn').text('Be the first to answer this question!')</script>
-<% else %>
-  <div class="answers">
-  <script>$('#answer_btn').text('Submit an Answer')</script>
-  <% @answers.each do |answer| %>
-  <%= render partial: 'shared/answer', locals: { answer: answer } %>
+    <%= link_to 'Submit an Answer', '#answerModal', data: {toggle: 'modal'}, id: 'answer_btn', class: "btn btn-success" %>
+    <%= render "shared/answer_modal" %>
+  <% else %>
+    <%= link_to 'Sign In to Submit an Answer', nil, id: 'answer_btn', class: "btn btn-success" %>
   <% end %>
-  </div><%# .answers %>
-<% end %>
+
+    <% if session[:id] %>
+    <%= form_tag question_comments_path(@question), class: 'comment_form', remote: true do %>
+    <%= submit_tag 'Add Comment', class: "btn btn-primary btn-xs" %>
+    <%= text_area_tag 'comment', nil, class: "form-control"%>
+    <% end %>
+    <% end %><br>
+  </div>
 
 
-<div id="hidden">
-  <p class='comment_append'></p>
-</div>
+  <% if @answers.empty? %>
+  <% if session[:id] %>
+  <script>$('#answer_btn').text('Be the first to answer this question!')</script>
+  <% else %>
+  <script>$('#answer_btn').text('Sign in to be the first to answer this question!')</script>
+  <% end %>
+  <% else %>
+  <% if session[:id] %>
+  <div class="answers">
+    <script>$('#answer_btn').text('Submit an Answer')</script>
+    <% else %>
+    <script>$('#answer_btn').text('Sign in to submit an answer')</script>
+    <% end %>
+    <% @answers.each do |answer| %>
+    <%= render partial: 'shared/answer', locals: { answer: answer } %>
+    <% end %>
+  </div>
+  <% end %>
+
+
+
+
+
+
+  <div id="hidden">
+    <p class='comment_append'></p>
+  </div>
 
 
