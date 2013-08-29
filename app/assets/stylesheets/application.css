@@ -19,6 +19,12 @@ html {
   min-width: 900px;
 }
 
+#landing-center{
+  text-align: center;
+  font-family: 'Faster One', cursive;
+  font-size: 1.5em;
+}
+
 .navbar-form {
   margin-top: 11px !important;
 }

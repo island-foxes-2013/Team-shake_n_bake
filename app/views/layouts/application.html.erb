@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>ShakeNBake</title>
+	<link href='http://fonts.googleapis.com/css?family=Faster+One' rel='stylesheet' type='text/css'>
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= stylesheet_link_tag    "bootstrap", :media => "all" %>
 	<%= javascript_include_tag "application" %>
@@ -13,7 +14,7 @@
 	<div class="navbar navbar-inverse">
 		<div class="navbar-inner">
 			<ul class="nav navbar-nav">
-				<li><%= link_to 'Shake \'n\' Bake', questions_path, class: 'brand' %></li>
+				<li><%= link_to 'Shake & Bake', questions_path, class: 'brand' %></li>
 
 				<% if session[:id] %>
 				<li><%= link_to 'My Profile', user_path(current_user) %></li>
